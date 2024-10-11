@@ -1,0 +1,36 @@
+#below are unix shell commands that can be used on the txt files in (code/fasta)
+
+#1 Counts how many lines are in each file
+wc -l data/fasta/*.fasta
+
+#2 Print everything starting from second line for the E.coli Genome
+tail -n +2  data/fasta/E.coli.fasta
+
+#3 Counts the sequence length of this genome
+tail -n +2 data/fasta/E.coli.fasta | tr -d '\n' | wc -m 
+
+#4 Counts the matches of a particular sequence: below "ATGC" is specified
+tail -n +2 data/fasta/E.coli.fasta | tr -d '\n' | grep -o "ATGC" | wc -l
+
+#5 Computes the AT/GC ratio (A+T/(G/C) number as a single ratio)
+
+A=$(tail -n +2 data/fasta/E.coli.fasta | tr -d '\n' | grep -o -E "A|T" | wc -l); G=$(tail -n +2 data/fasta/E.coli.fasta | tr -d '\n' | grep -o -E "G|C" | wc -l);ratio=$(echo "scale=6; $A / $G" | bc); echo "the AT/GC ratio is: $ratio"
+
+#explanation:
+
+# Count occurrences of 'A and T' in the sequence
+AT=$(tail -n +2 data/fasta/E.coli.fasta | tr -d '\n' | grep -o -E "A|T" | wc -l)
+
+#grep -E allows for | to be used to search for either A or T within the sequence
+
+# Count occurrences of 'G and C' in the sequence
+GC=$(tail -n +2 data/fasta/E.coli.fasta | tr -d '\n' | grep -o -E "G|C" | wc -l)    
+ 
+#finds ratio by dividing $A by $G
+ratio=$(echo "scale=6; $AT / $GC" | bc)
+
+#Prints the ratio
+echo "the AT/GC ratio is: $ratio"
+
+
+

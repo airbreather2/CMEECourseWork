@@ -1,26 +1,15 @@
+#Below is a boilerplate for your first shellscript
+#!/bin/sh tells the bash interpreter that this is a bash script
+
 #!/bin/sh
-# Author: Your Name your.login@imperial.ac.uk
+# Author: Your Name sed24@ic.ac.uk
 # Script: boilerplate.sh
 # Desc: simple boilerplate for shell scripts
 # Arguments: none
-# Date: Oct 2019
+# Date: Oct 2024
 
-echo -e "\nThis is a shell script! \n"
+echo -e "\nThis is a shell script! \n" #prints text inside
 
 #exit
 
-echo "the arguments are $#" 
-echo "the arguments are $0"
-echo "the arguments are $@"
-echo "the arguments are $1"
-echo "the arguments are $2"    
 
-MY_VAR='SOME STRING'
-echo 'the current value of the variable is:' $MY_VAR
-echo
-echo 'Please enter a new string' 
-MY_VAR='POOPDECK'
-read MY_VAR
-echo
-echo 'the current value of the variable is:' $MY_VAR
-echo
