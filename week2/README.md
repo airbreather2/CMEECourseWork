@@ -1,7 +1,11 @@
 
 # Week2
 
-Week 2 contains content from the: Biological computing in python 1 chapter
+### Week 2 contains content from the: Biological computing in python 1 chapter
+
+#### code used: 
+
+-python
 
 ## Files and folders in code/: 
 
