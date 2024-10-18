@@ -189,16 +189,16 @@ This script demonstrates how the `__name__` variable works in Python. It checks 
 **Output:** Prints whether the script is being run directly or imported, along with the module's name.
 
 
-#Data
+# Data
 This folder contains data mentioned for input in the above scripts: 
 
-#Results
+# Results
 This folder contains the outputs of the above scripts, specifically: 
 
 - oaks_debugme.py
 - align_seq.py
 
-#Sandbox
+# Sandbox
 this is the sandbox area, it contains files used for experimentation: 
 
 additionally it contains py_guides, which contains python files used for learning purposes

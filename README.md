@@ -12,7 +12,7 @@ This repository contains all materials related to my coursework for the CMEE cou
 
 Each Content from week is organized into the following folders:
 
-- **code/**: Contains all the scripts and code used for analysis.
+- **code/**: Contains all the scripts and code used per week. a short summary of their functions are listed and input and output examples are given. 
 - **data/**: Includes data utilized in the coursework.
 - **results/**: Contains output files from /code.
 - **sandbox/**: A space for experimentation.
