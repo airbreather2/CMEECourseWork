@@ -1,3 +1,18 @@
+"""
+Description: This script demonstrates how to read from and write to CSV files using the `csv` module in Python.
+It includes:
+- Reading data from a CSV file and printing species information.
+- Writing specific columns (species name and body mass) from one CSV file to another.
+
+Author: Sebastian Dohne (sed24@ic.ac.uk)
+Version: 0.0.1
+License: License for this code/program
+"""
+__appname__ = '[application name here]'
+__author__ = 'Sebastian Dohne (sed24@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
 import csv
 
 # Read a file containing:

@@ -1,3 +1,23 @@
+#!/usr/bin/env python3
+
+"""
+Description: This script demonstrates the use of list comprehensions and loops 
+to extract specific information from a tuple of bird species. The script performs the following:
+- Creates lists of latin names, common names, and body masses using list comprehensions.
+- Recreates the same lists using conventional loops.
+
+Author: Sebastian Dohne (sed24@ic.ac.uk)
+Version: 0.0.1
+License: License for this code/program
+"""
+
+__appname__ = '[application name here]'
+__author__ = 'Sebastian Dohne (sed24@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
+# Tuple containing information about birds: latin name, common name, and mean body mass (in grams)
+
 birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
           ('Delichon urbica','House martin',19),
           ('Junco phaeonotus','Yellow-eyed junco',19.5),

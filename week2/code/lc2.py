@@ -1,3 +1,23 @@
+#!/usr/bin/env python3
+
+"""
+Description: This script analyzes the average UK rainfall for the year 1910 by month, 
+using both list comprehensions and conventional loops. It performs the following tasks:
+- Creates a list of month and rainfall tuples where rainfall exceeds 100 mm.
+- Creates a list of month names where rainfall is less than 50 mm.
+- Recreates both tasks using conventional loops.
+
+Author: Sebastian Dohne (sed24@ic.ac.uk)
+Version: 0.0.1
+License: License for this code/program
+"""
+
+__appname__ = '[application name here]'
+__author__ = 'Sebastian Dohne (sed24@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
+
 # Average UK Rainfall (mm) for 1910 by month
 # http://www.metoffice.gov.uk/climate/uk/datasets
 rainfall = (('JAN',111.4),

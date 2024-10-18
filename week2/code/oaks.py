@@ -1,3 +1,22 @@
+#!/usr/bin/env python3
+
+"""
+Description: This script identifies oak species (those that start with 'Quercus ') 
+from a given list of taxa using both for loops and list comprehensions. 
+Additionally, it prints the oak species names in uppercase using both methods.
+
+Author: Sebastian Dohne (sed24@ic.ac.uk)
+Version: 0.0.1
+License: License for this code/program
+"""
+
+__appname__ = '[application name here]'
+__author__ = 'Sebastian Dohne (sed24@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
+
+
 ## Finds just those taxa that are oak trees from a list of species
 
 taxa = [ 'Quercus robur',
@@ -8,6 +27,17 @@ taxa = [ 'Quercus robur',
        ]
 
 def is_an_oak(name):
+    
+    """
+    Returns True if the given species name starts with 'quercus ' (case-insensitive).
+    
+    Parameters:
+    name (str): The species name to check.
+
+    Returns:
+    bool: True if the name starts with 'quercus ', otherwise False.
+    """
+    
     return name.lower().startswith('quercus ')
 
 

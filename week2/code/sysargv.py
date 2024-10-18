@@ -1,5 +1,21 @@
 #!/usr/bin/env python3
 
+"""
+Description: This script demonstrates the usage of `sys.argv`, which is used to 
+access command-line arguments in Python. It prints:
+- The name of the script.
+- The number of arguments passed to the script.
+- The list of arguments themselves.
+
+Author: Sebastian Dohne (sed24@ic.ac.uk)
+Version: 0.0.1
+License: License for this code/program
+"""
+__appname__ = '[application name here]'
+__author__ = 'Sebastian Dohne (sed24@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
 
 #argv is the argument variable it is the variable that holds the arguments you pass to your Python script
 #when you run it like $var in shell scripts
