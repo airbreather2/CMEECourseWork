@@ -14,7 +14,7 @@ Author: Sebastian Dohne (sed24@ic.ac.uk)
 Version: 0.0.1
 License: License for this code/program
 """
-__appname__ = '[application name here]'
+__appname__ = '[align_seq.py]'
 __author__ = 'Sebastian Dohne (sed24@ic.ac.uk)'
 __version__ = '0.0.1'
 __license__ = "License for this code/program"
@@ -24,7 +24,24 @@ import csv
 import sys
 
 def load_sequence(filename):
-    #csv file check
+    """
+    Loads two DNA sequences from a CSV file.
+
+    This function checks if the provided filename ends with '.csv' and attempts to read 
+    the sequences from the specified CSV file. It expects the CSV file to contain two 
+    sequences in the first two columns of the file. The first row is treated as a header 
+    and is skipped during the reading process.
+
+    Args:
+        filename (str): The path to the CSV file containing the DNA sequences.
+
+    Returns:
+        tuple: A tuple containing two strings:
+            - The first string is the concatenated sequence from the first column.
+            - The second string is the concatenated sequence from the second column.
+            
+        If the file is not found or is not a CSV file, returns (None, None).
+    """
     if not filename.lower().endswith('.csv'):
         print("Error: The file is not a CSV file. Please provide a .csv file.")
         return None, None
@@ -67,27 +84,42 @@ else:
 
 #ipdb.set_trace()
 
-# A function that computes a score by returning the number of matches starting
-# from arbitrary startpoint (chosen by user)
-def calculate_score(s1, s2, l1, l2, startpoint): #takes these as inputs
-    matched = "" # to hold string displaying alignements
+def calculate_score(s1, s2, l1, l2, startpoint):
+    """
+    Computes the alignment score by counting the number of matching bases 
+    between two DNA sequences starting from a specified point.
+
+    Args:
+        s1 (str): The first DNA sequence (the longer sequence).
+        s2 (str): The second DNA sequence (the shorter sequence).
+        l1 (int): The length of the first DNA sequence.
+        l2 (int): The length of the second DNA sequence.
+        startpoint (int): The starting index in the first sequence for the alignment.
+
+    Returns:
+        int: The total score representing the number of matching bases found during the alignment.
+    
+    This function prints a visual representation of the alignment, where 
+    '*' indicates a match and '-' indicates a mismatch.
+    """
+    matched = ""  # Holds the alignment representation
     score = 0
     for i in range(l2):
-        if (i + startpoint) < l1: #iterates through length of  chosen start point and checks 
-            if s1[i + startpoint] == s2[i]: # if the bases match
-                matched = matched + "*" # a star is added to matched indicating a match
-                score = score + 1 # score counter goes up
+        if (i + startpoint) < l1:  # Check within bounds of the first sequence
+            if s1[i + startpoint] == s2[i]:  # If the bases match
+                matched += "*"  # Append '*' for a match
+                score += 1  # Increment score
             else:
-                matched = matched + "-" #otherwise a dash is indicated showing no match
+                matched += "-"  # Append '-' for a mismatch
 
-    # some formatted output
-    print("." * startpoint + matched) #asterisk multiples number of dots by assigned startpoint value to indicate value at which it starts          
-    print("." * startpoint + s2) #same as above but for the sequence of the second dna string
-    print(s1) #prints first dna sequence
-    print(score) #prince matches score below
-    print(" ") #blank line for spacing
+    # Print formatted output
+    print("." * startpoint + matched)  # Align matched sequence
+    print("." * startpoint + s2)  # Print second sequence
+    print(s1)  # Print first DNA sequence
+    print(score)  # Print match score
+    print(" ")  # Blank line for spacing
 
-    return score #returns score value back to function where it is defined 
+    return score  # Return the total score
 
 
 
@@ -114,6 +146,19 @@ for i in range(l1): # Note that you just take the last alignment with the highes
 
 
 def save_to_text(file_path, best_alignment, s1, best_score):
+    """
+    Saves the best alignment and score to a specified text file.
+
+    Args:
+        file_path (str): The path to the output text file.
+        best_alignment (str): The best alignment of the two sequences.
+        s1 (str): The longer DNA sequence involved in the best alignment.
+        best_score (int): The score of the best alignment.
+    
+    This function writes the best alignment, the associated DNA sequence,
+    and the best score to the specified file. It prints a confirmation message
+    once the results are saved.
+    """
     with open(file_path, 'w') as outfile: 
         outfile.write("Best Alignment:\n")
         outfile.write(best_alignment + "\n")

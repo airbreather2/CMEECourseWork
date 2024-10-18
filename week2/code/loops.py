@@ -12,7 +12,10 @@ Author: Sebastian Dohne (sed24@ic.ac.uk)
 Version: 0.0.1
 License: License for this code/program
 """
-
+__appname__ = '[loops.py]'
+__author__ = 'Sebastian Dohne (sed24@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
 
 # Simple for loop that iterates over a range of numbers from 0 to 4
 for i in range(5):

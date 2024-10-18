@@ -12,7 +12,7 @@ Version: 0.0.1
 License: License for this code/program
 """
 
-__appname__ = '[application name here]'
+__appname__ = '[lc2.py]'
 __author__ = 'Sebastian Dohne (sed24@ic.ac.uk)'
 __version__ = '0.0.1'
 __license__ = "License for this code/program"

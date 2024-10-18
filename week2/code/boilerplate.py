@@ -4,7 +4,7 @@
 """Description of this program or application.
 You can use several lines""" #docstrings allow you to describe an operation of the script or a function/module within it
 
-__appname__ = '[application name here]'
+__appname__ = '[boilerplate.py]'
 __author__ = 'Sebastian Dohne (sed24@ic.ac.uk)'
 __version__ = '0.0.1'
 __license__ = "License for this code/program"
