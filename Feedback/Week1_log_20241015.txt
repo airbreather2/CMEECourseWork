@@ -1,0 +1,843 @@
+Starting code feedback for Sebastian, Week1
+
+Current Points = 100
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 1.59 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: week2, Feedback, week1, .git
+
+Found the following files in parent directory: README.md
+
+Checking for key files in parent directory...
+
+.gitignore missing, 1 pt deducted
+
+Current Points = 99
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+# CMEE Coursework Repository
+
+**Author:** Sebastian Dohne  
+**Email:** [sed24@ic.ac.uk](mailto:sed24@ic.ac.uk)  
+**Course:** MSc CMEE 
+
+## Overview
+
+This repository contains all materials related to my coursework for the CMEE course. It is organized by weeks, with each week divided into specific folders for better navigation and clarity.
+
+## Folder Structure
+
+Each Content from week is organized into the following folders:
+
+- **code/**: Contains all the scripts and code used for analysis.
+- **data/**: Includes data utilized in the coursework.
+- **results/**: Contains output files from /code.
+- **sandbox/**: A space for experimentation.
+
+
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 2 weekly directories: week1, week2
+
+The Week1 directory will be assessed 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+Assessing WEEK1...
+
+Found the following directories: sandbox, code, data, results
+
+Found the following files: README.md
+
+Checking for readme file in weekly directory...
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+# Week1
+
+Week 1 contains content from the: UNIX and Linux, Shell-scripting and LaTex chapters
+
+## BASH Scripts in code: 
+
+### boilerplate.sh
+
+- contains an example boilerplate
+
+### CompileLaTeX.sh
+
+- Automates the process of compiling a LaTeX document with references, opens the resulting PDF, and cleans up intermediate files. (code also contains: FirstBiblio.bib,FirstExample.pdf )
+
+### ConcatenateTwoFiles.sh
+
+- Concatenates two inputed files into an existing third file
+
+### CountLines.sh 
+
+- Counts the number of lines in a specified file and prints the result
+
+### csvtospace.sh 
+
+- Takes a comma-separated values file and converts it to a space-separated format
+
+### cvstotab.sh
+ 
+ - Converts a CSV file to a tab-delimited format.
+
+### MyExampleScript.sh 
+
+# Week 1
+
+Week 1 contains content from the following chapters: **UNIX and Linux, Shell Scripting, and LaTeX.**
+
+## BASH Scripts in Code
+
+### boilerplate.sh
+- Contains an example boilerplate script.
+
+### CompileLaTeX.sh
+- Automates the process of compiling a LaTeX document with references, opens the resulting PDF, and cleans up intermediate files. 
+- **Associated Files:** 
+  - FirstBiblio.bib
+  - FirstExample.pdf
+
+### ConcatenateTwoFiles.sh
+- Concatenates two input files into an existing third file.
+
+### CountLines.sh 
+- Counts the number of lines in a specified file and prints the result.
+
+### csvtospace.sh 
+- Converts a comma-separated values (CSV) file to a space-separated format.
+
+### cvstotab.sh
+- Converts a CSV file to a tab-delimited format.
+
+### MyExampleScript.sh 
+- A script that greets the user.
+
+### tabtocsv.sh 
+- Converts a tab-delimited file to a comma-separated file (CSV format).
+
+### tiff2png.sh 
+- Converts all `.tif` files in the current directory to `.png` format.
+
+### variables.sh 
+- Illustrates the use of variables in multiple ways.
+
+## Fasta Exercise
+
+**Location:** `code/UnixPrac1.txt` (to be used on files in `data/fasta`)
+
+### Terminal Commands Involved:
+- Counting lines in a sequence
+- Printing the sequence
+- Counting sequence length
+- Counting the number of character matches in a particular sequence
+- Computing the AT/GC ratio of a sequence
+
+## Associated Files with Content Covered in UNIX and Linux Chapters
+- Building Coursework Structure
+- Command Arguments
+- Redirection and Pipes (`test.txt`)
+- Wildcards (all files in `sandbox/TestWild` directory)
+- Using `grep` (`data/Spawannxs.txt`)
+- Finding Files (all files in `sandbox/Testfind` directory)
+
+## Shell Scripting Chapters
+- **Conventions and Syntax Rules:** Boilerplates (`code/boilerplate.sh`)
+- **Variables in Shell Scripts:** (`code/Variables.sh` and `code/MyExampleScript.sh`)
+
+
+**********************************************************************
+
+Found following files in results directory: placeholder.txt...
+
+Ideally, Results directory should be empty other than, perhaps a .gitkeep. 
+
+ 0.5 pts deducted per results file 
+
+Current Points = 98.5
+
+Found 13 code files: variables.sh, MyExampleScript.sh, FirstExample.tex, tiff2png.sh, tabtocsv.sh, CompileLaTeX.sh, UnixPrac1.txt, csvtospace.sh, FirstBiblio.bib, ConcatenateTwoFiles.sh, boilerplate.sh, csvtotab.sh, CountLines.sh
+
+Found the following extra files: FirstExample.pdf
+0.5 pt deducted per extra file
+
+Current Points = 98.0
+
+======================================================================
+Testing script/code files...
+
+======================================================================
+Inspecting script file variables.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/sh
+#!/bin/sh
+# Author: Your name sed24@ic.ac.uk
+# Script: variables.sh
+# Desc: Illustrates the use of variables in multiple ways
+# Date: Oct 2024
+
+
+# Special variables
+
+echo "This script was called with $# parameters" #prints number of parameters passed to script
+echo "The script's name is $0" #prints the name of the script
+echo "The arguments are $@" #lists the number of arguments passed to script as a string
+echo "The first argument is $1" #Prints first argument passed to the script 
+echo "The second argument is $2" #Prints second argument passed to the script
+
+# Assigned Variables; Explicit declaration:
+MY_VAR='some string' #assigns variable with a string value 'some string'
+echo 'the current value of the variable is:' $MY_VAR #prints current value of the variable
+echo
+echo 'Please enter a new string'
+read MY_VAR  
+#read allows one to enter a new string
+echo
+echo 'the current value of the variable is:' $MY_VAR 
+echo
+
+## Assigned Variables; Reading (multiple values) from user input:
+echo 'Enter two numbers separated by space(s)' 
+read a b
+#allows user to input 2 numbers and for them to be summed
+echo
+echo 'you entered' $a 'and' $b '; Their sum is:'
+
+## Assigned Variables; Command substitution
+MY_SUM=$(expr $a + $b)
+echo $MY_SUM
+
+**********************************************************************
+
+Testing variables.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+This script was called with 0 parameters
+The script's name is variables.sh
+The arguments are 
+The first argument is 
+The second argument is 
+the current value of the variable is: some string
+
+Please enter a new string
+
+the current value of the variable is:
+
+Enter two numbers separated by space(s)
+
+you entered and ; Their sum is:
+
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+expr: syntax error: missing argument after ‘+’
+
+======================================================================
+Inspecting script file MyExampleScript.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/sh
+# Author: Your name sed24@ic.ac.uk
+# Script: MyExampleScript.sh
+# Description: The script greets the user running the script twice, using both a combination of variables.
+# Date: Oct 2024
+
+MSG1="Hello"
+MSG2=$USER #uses user as a variable
+echo "$MSG1 $MSG2"
+echo "Hello $USER"
+echo	
+
+
+**********************************************************************
+
+Testing MyExampleScript.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Hello mhasoba
+Hello mhasoba
+
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00375s
+
+======================================================================
+Inspecting script file FirstExample.tex...
+
+File contents are:
+
+**********************************************************************
+\documentclass[12pt]{article}
+
+\title{A Simple Document}
+
+\author{Sebastian Dohne}
+
+\date{10/06/2024}
+
+\begin{document}
+  \maketitle
+  
+  \begin{abstract}
+    This paper analyzes a seminal equation in population biology.
+  \end{abstract}
+  
+  \section{Introduction}
+    Hey guys watch this, this'll be really cool
+  
+  \section{Materials \& Methods}
+  Here's how it's done, //
+  
+  A foundational equation of population biology is:
+  
+  \begin{equation}
+    \frac{dN}{dt} = r N (1 - \frac{N}{K})
+  \end{equation}
+  
+  It was first proposed by Verhulst in 1838 \cite{verhulst1838notice}.
+  
+  \bibliographystyle{plain}
+  
+  \bibliography{FirstBiblio}
+
+\end{document}
+
+**********************************************************************
+
+Testing FirstExample.tex...
+
+======================================================================
+Inspecting script file tiff2png.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+#!/bin/sh
+# Author: Your name sed24@ic.ac.uk
+# Script: MyExampleScript.sh
+# Description: This script converts all .tif files in the current directory to .png format.
+# Date: Oct 2024
+
+# Check if every file in the current directory has a .tif extension
+
+for file in *; do
+  if [[ "$file" != *.tif ]]; then
+    echo "Error: At least one file in the directory is not a .tif file. Please check directory."
+    exit 1  # Exit if a non-.tif file is found
+  fi
+done
+
+
+# Loop through each.tif file in the current directory
+for f in *.tif; 
+    do  
+        echo "Converting $f"; 
+        convert "$f"  "$(basename "$f" .tif).png"; #converts tif to png 
+    done
+
+**********************************************************************
+
+Testing tiff2png.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Error: At least one file in the directory is not a .tif file. Please check directory.
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00436s
+
+======================================================================
+Inspecting script file tabtocsv.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/sh
+# Author: Your name sed24@ic.ac.uk
+# Script: tabtocsv.sh
+# Description: Converts a tab-delimited file to a comma-separated file (CSV format) 
+# by replacing all tabs with commas.
+#
+# Saves the output into a .csv file
+# Arguments: 1 -> tab delimited file
+# Date: Oct 2024
+
+
+echo "Creating a comma-delimited version of $1 ..."
+
+# Check if exactly one argument is provided
+if [ "$#" -ne 1 ]; then 
+  echo "Error: You need to provide exactly 1 file"
+  exit 1  # Script ends here if condition is true
+fi
+
+if [[ "$1" != *.txt  ]]; then
+  echo "Error: Only tab-delimited files with .txt extensions are accepted."
+  exit 1  # Script ends here if the file is not a .csv
+fi
+
+# Convert the CSV file to comma-delimited
+cat $1 | tr -s "$(printf '\t')" "," >> $1.csv
+
+echo "Done!"
+echo "$1 converted to comma-delimited file"
+exit
+#appends the csv.file(variable) so all tabs are replaced with commas then echos done!
+
+**********************************************************************
+
+Testing tabtocsv.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Creating a comma-delimited version of  ...
+Error: You need to provide exactly 1 file
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00388s
+
+======================================================================
+Inspecting script file CompileLaTeX.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: Your Name <your_email@example.com>
+# Script: compile_latex.sh
+# Description: Automates the process of compiling a LaTeX document with references, opens the resulting PDF, and cleans up intermediate files.
+# Date: Oct 2024
+
+#below is a shellscript that automates the process of compiling a LaTeX document with references, opens the resulting PDF, and cleans up intermediate files.
+
+#Instructions: 
+
+#Save this script in the same directory as your LaTeX and bibtex file. 
+#If your LaTeX file is named mydocument.tex, can be run by passing this command the base name like so: bash CompileLaTeX.sh mydocument.tex
+
+# % Removes the .tex extension if it's provided, otherwise uses the argument as-is
+latexfile="${1%.tex}"
+
+pdflatex "${latexfile}.tex" #Compiles the LaTeX document specified by $1 into a PDF for the first time. This generates intermediate files needed by bibtex.
+bibtex "$latexfile" #Processes the bibliography using bibtex for the document specified by $1
+pdflatex "${latexfile}.tex" #Compiles the document again (twice) to ensure all references and bibliography are correctly linked and cross references updated
+pdflatex "${latexfile}.tex"
+evince "${latexfile}.pdf" & #Opens the resulting PDF file in the background using the evince PDF viewer.
+
+
+## Cleanup
+rm *.aux #Removes auxiliary files (.aux) that store cross-reference information.
+rm *.log #Removes log files (.log) with compilation details.
+rm *.bbl #Removes the bibliography file (.bbl) generated by bibtex.
+rm *.blg #Removes bibtex log files (.blg)
+
+**********************************************************************
+
+Testing CompileLaTeX.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(/usr/share/texlive/texmf-dist/tex/latex/tools/.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+File ignored)
+*
+! Emergency stop.
+<*> 
+    
+!  ==> Fatal error occurred, no output PDF file produced!
+Transcript written on .log.
+I couldn't open file name `.aux'
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/De
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+rm: cannot remove '*.aux': No such file or directory
+rm: cannot remove '*.log': No such file or directory
+rm: cannot remove '*.bbl': No such file or directory
+rm: cannot remove '*.blg': No such file or directory
+
+(process:144176): Gtk-WARNING **: 07:28:45.774: Locale not supported by C library.
+	Using the fallback 'C' locale.
+
+(evince:144176): Gtk-WARNING **: 07:28:45.811: Theme parsing error: gtk-keys.css:1:0: Failed to import: Error opening file /snap/code/172/usr/share/themes/Default/gtk-3.0/gtk-keys.css: Permission denied
+Gtk-Message: 07:28:45.811: Failed to load module "canberra-gtk-module"
+Gtk-Message: 07:28:45.812: Failed to load module "canberra-gtk-module"
+/home/mhasoba/snap/code/common/.cache/gio-modules/libdconfsettings.so: cannot open shared object file: Permission denied
+Failed to load module: /home/mhasoba/snap/code/common/.cache/gio-modules/libdconfsettings.so
+
+** (evince:144176): WARNING **: 07:28:46.087: set_filenames: Error when getting information for file ?/home/mhasoba/Documents/Teaching/IC_CMEE/2024-25/Coursework/StudentRepos/SebastianDohne_sed24/week1/code/.pdf?: No such file or directory
+
+======================================================================
+Inspecting script file UnixPrac1.txt...
+
+File contents are:
+
+**********************************************************************
+#below are unix shell commands that can be used on the txt files in (code/fasta)
+
+#1 Counts how many lines are in each file
+wc -l data/fasta/*.fasta
+
+#2 Print everything starting from second line for the E.coli Genome
+tail -n +2  data/fasta/E.coli.fasta
+
+#3 Counts the sequence length of this genome
+tail -n +2 data/fasta/E.coli.fasta | tr -d '\n' | wc -m 
+
+#4 Counts the matches of a particular sequence: below "ATGC" is specified
+tail -n +2 data/fasta/E.coli.fasta | tr -d '\n' | grep -o "ATGC" | wc -l
+
+#5 Computes the AT/GC ratio (A+T/(G/C) number as a single ratio)
+
+A=$(tail -n +2 data/fasta/E.coli.fasta | tr -d '\n' | grep -o -E "A|T" | wc -l); G=$(tail -n +2 data/fasta/E.coli.fasta | tr -d '\n' | grep -o -E "G|C" | wc -l);ratio=$(echo "scale=6; $A / $G" | bc); echo "the AT/GC ratio is: $ratio"
+
+#explanation:
+
+# Count occurrences of 'A and T' in the sequence
+AT=$(tail -n +2 data/fasta/E.coli.fasta | tr -d '\n' | grep -o -E "A|T" | wc -l)
+
+#grep -E allows for | to be used to search for either A or T within the sequence
+
+# Count occurrences of 'G and C' in the sequence
+GC=$(tail -n +2 data/fasta/E.coli.fasta | tr -d '\n' | grep -o -E "G|C" | wc -l)    
+ 
+#finds ratio by dividing $A by $G
+ratio=$(echo "scale=6; $AT / $GC" | bc)
+
+#Prints the ratio
+echo "the AT/GC ratio is: $ratio"
+
+
+
+
+**********************************************************************
+
+Testing UnixPrac1.txt...
+
+======================================================================
+Inspecting script file csvtospace.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/sh
+# Author: Your name sed24@ic.ac.uk
+# Script: tabtospace.sh
+# Description: Takes a comma-separated values file and converts it to a space-separated format
+#
+# Saves the output into a .txt file
+# Arguments: 1 -> comma-separated input file (any extension, e.g., .csv)
+# Output: a space-delimited .txt file
+# Date: Oct 2024
+
+echo "Creating a space-delimited version of $1 ..."
+
+# Check if exactly one argument is provided
+if [ "$#" -ne 1 ]; then 
+  echo "Error: You need to provide exactly 1 file"
+  exit 1  # Script ends here if condition is true
+fi
+
+#Check if file provided is in csv format
+if [[ "$1" != *.csv ]]; then
+  echo "Error: The file provided is not a CSV file. Please provide a .csv file."
+  exit 1  # Script ends here if the file is not a .csv
+fi
+
+# Convert the CSV file to space-delimited
+cat "$1" | tr "," " " >> "${1%.csv}_spacedelimited.txt"
+
+echo "Done!"
+echo "$1 converted to space-delimited file"
+
+
+**********************************************************************
+
+Testing csvtospace.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Creating a space-delimited version of  ...
+Error: You need to provide exactly 1 file
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00534s
+
+======================================================================
+Inspecting script file FirstBiblio.bib...
+
+File contents are:
+
+**********************************************************************
+@article{verhulst1838notice,
+  title={Notice sur la loi que la population suit dans son accroissement},
+  author={Verhulst, Pierre-Fran{\c{c}}ois},
+  journal={Correspondence mathematique et physique},
+  volume={10},
+  pages={113--129},
+  year={1838}
+}
+
+**********************************************************************
+
+Testing FirstBiblio.bib...
+
+======================================================================
+Inspecting script file ConcatenateTwoFiles.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: Your name sed24@ic.ac.uk
+# Script: ConcatenateTwoFiles.sh
+# Description: Concatenate Two inputed files into an existing third file
+#
+# Arguments: 2 -> tab delimited file
+# Date: Oct 2024
+
+# Check if 2 arguments are provided
+if [ "$#" -ne 3 ]; then 
+  echo "Error: You need to provide exactly 3 arguments"
+  exit 1  # Script ends here if condition is true
+fi
+
+cat $1 > $3 #overwrites content of 3 with 1 
+cat $2 >> $3 #appends variable 2 to 3
+echo "Merged File is"
+cat $3 #outputs the merged content of 2 and 3
+
+**********************************************************************
+
+Testing ConcatenateTwoFiles.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Error: You need to provide exactly 3 arguments
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00664s
+
+======================================================================
+Inspecting script file boilerplate.sh...
+
+File contents are:
+
+**********************************************************************
+#Below is a boilerplate for your first shellscript
+#!/bin/sh tells the bash interpreter that this is a bash script
+
+#!/bin/sh
+# Author: Your Name sed24@ic.ac.uk
+# Script: boilerplate.sh
+# Desc: simple boilerplate for shell scripts
+# Arguments: none
+# Date: Oct 2024
+
+echo -e "\nThis is a shell script! \n" #prints text inside
+
+#exit
+
+
+
+**********************************************************************
+
+Testing boilerplate.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+This is a shell script! 
+
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00689s
+
+======================================================================
+Inspecting script file csvtotab.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/sh
+# Author: Your name sed24@ic.ac.uk
+# Script: csvtotsv.sh
+# Description: Converts a CSV file to a tab-delimited format.
+#
+# Saves the output into a .txt file
+# Arguments: 1 -> tab delimited file
+# Date: Oct 2024
+
+
+echo "Creating a tab-delimited version of $1 ..."
+
+
+# Check if exactly one argument is provided
+if [ "$#" -ne 1 ]; then 
+  echo "Error: You need to provide exactly 1 file"
+  exit 1  # Script ends here if condition is true
+fi
+
+if [[ "$1" != *.csv ]]; then
+  echo "Error: The file provided is not a CSV file. Please provide a .csv file."
+  exit 1  # Script ends here if the file is not a .csv
+fi
+
+# Convert the CVS file to tab-delimited
+cat $1 | tr -s "," "\t" > $1.txt
+
+echo "Done!"
+echo "$1 converted to tab-delimited file"
+exit
+#appends turns the so all commas are replaced with tabs then echos done!
+
+**********************************************************************
+
+Testing csvtotab.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Creating a tab-delimited version of  ...
+Error: You need to provide exactly 1 file
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00590s
+
+======================================================================
+Inspecting script file CountLines.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Script: countlines.sh
+#Author: Sebastian Dohne (sed24@ic.ac.uk)
+# Description: Counts the number of lines in a specified file and prints the result
+#
+# Arguments: 1 -> input file (any format)
+# Output: prints the number of lines in the specified file to the console
+# Date: Oct 2024
+
+
+# Check if exactly one argument is provided
+if [ "$#" -ne 1 ]; then 
+  echo "Error: You need to provide exactly 1 file"
+  exit 1  # Script ends here if condition is true
+fi
+
+NumLines=`wc -l < $1` #causes the line count command to run using data from variable
+echo "The file $1 has $NumLines lines"
+echo
+
+**********************************************************************
+
+Testing CountLines.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Error: You need to provide exactly 1 file
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00528s
+
+======================================================================
+======================================================================
+Finished running scripts
+
+Ran into 2 errors
+
+======================================================================
+======================================================================
+
+FINISHED WEEKLY ASSESSMENT
+
+Current Points for the Week = 98.0
+
+NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!
