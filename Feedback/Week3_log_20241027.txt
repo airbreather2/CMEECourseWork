@@ -1,0 +1,2229 @@
+Starting testing for Sebastian, Week3
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 2.15 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: .git, week1, week4, week2, Feedback, week3
+
+Found the following files in parent directory: .gitignore, .Rhistory, README.md
+
+Checking for key files in parent directory...
+
+Found .gitignore in parent directory, great! 
+
+Printing contents of .gitignore:
+
+**********************************************************************
+*~ 
+*.tmp
+
+**********************************************************************
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+# CMEE Coursework Repository
+
+**Author:** Sebastian Dohne  
+**Email:** [sed24@ic.ac.uk](mailto:sed24@ic.ac.uk)  
+**Course:** MSc CMEE 
+
+## Overview
+
+This repository contains all materials related to my coursework for the CMEE course. It is organized by weeks, with each week divided into specific folders for better navigation and clarity.
+
+## Folder Structure
+
+Each Content from week is organized into the following folders:
+
+- **code/**: Contains all the scripts and code used per week. a short summary of their functions are listed and input and output examples are given. 
+- **data/**: Includes data utilized in the coursework.
+- **results/**: Contains output files from /code.
+- **sandbox/**: A space for experimentation.
+
+
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 4 weekly directories: week1, week2, week3, week4
+
+The Week3 directory will be tested 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+Testing WEEK3...
+
+Found the following directories: sandbox, results, data, code
+
+Found the following files: .RData, .Rhistory, README.md
+
+Checking for readme file in weekly directory...
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+# Week 3
+
+Week 3 contains content from the following chapters: **Biological computing in R and Data management and visualisation in R**
+
+additionally python scripts from the groupwork practicals in **biological computing in python 1** can be found at: 
+[05_Electric_Emus GitHub Repository](https://github.com/airbreather2/05_Electric_Emus)
+
+
+#### languages used: 
+
+- R 
+
+## R Scripts in Code
+
+### basic_io.R
+
+- **Description**:  
+  A simple script to illustrate R input-output operations. The script demonstrates how to:
+  - Read a CSV file.
+  - Write data to a new file.
+  - Append data to an existing file.
+  - Write data with and without row/column names.
+
+  - **Arguments**:  
+    This script does not require any arguments.
+
+  - **Dependencies**:  
+    - R environment.
+    - CSV file located at `../data/trees.csv`.
+    - The script uses standard R functions (`read.csv`, `write.csv`, `write.table`) available in all R installations.
+    - Ensure the `../results/` directory exists for saving output files.
+
+- **Usage**:  
+  1. Make sure the working directory and file paths are correct.
+  2. Run the script using the following syntax:
+     ```bash
+     Rscript basic_io.R
+     ```
+### control_flow.R
+
+- **Description**:  
+  This script demonstrates basic control flow structures in R such as conditional statements, for loops, and while loops. It also illustrates how to source another R script.
+
+  - **Arguments**:  
+    This script does not require any arguments.
+
+  - **Dependencies**:  
+    - Ensure the sourced file `Control_flow.R` exists in the working directory.
+    - R environment.
+
+- **Usage**:  
+  1. Modify the working directory path in the script if necessary.
+  2. Run the script using the following syntax:
+     ```bash
+     Rscript control_flow.R
+     ```
+### break.R
+
+- **Description**:  
+  This script demonstrates a simple `while` loop in R that runs until a break condition is met. It prints the value of `i` on each iteration and exits the loop when `i` equals 10.
+
+  - **Arguments**:  
+    This script does not require any arguments.
+
+  - **Usage**:  
+    1. Run the script using the following syntax:
+       ```bash
+       Rscript break.R
+       ```
+    - The script will print values of `i` from 0 to 9 until the break condition (when `i` equals 10) is met.
+
+
+  - **Additional Notes**:
+    - The script uses a `while` loop that will theoretically run infinitely (`i < Inf`), but it breaks out of the loop when `i == 10`.
+    - It prints the value of `i` for each iteration before updating it.
+
+### next.R
+
+- **Description**:  
+  This script demonstrates the use of the `next` statement within a `for` loop in R. The `next` statement allows you to skip specific iterations in the loop based on a condition. In this script, the loop skips over even numbers.
+
+  - **Arguments**:  
+    This script does not require any arguments.
+
+  - **Usage**:  
+    1. Run the script using the following syntax:
+       ```bash
+       Rscript next.R
+       ```
+    - The script will print the odd numbers between 1 and 10, skipping the even numbers.
+
+  - **Additional Notes**:
+    - The `next` statement is used within a `for` loop to skip iterations when the condition `(i %% 2 == 0)` is met (i.e., when `i` is an even number).
+    - The script will only print the odd numbers between 1 and 10.
+
+### boilerplate.R
+
+- **Description**:  
+  This script demonstrates the creation and testing of a simple R function (`MyFunction`) that accepts two arguments, prints their types, and returns them as a vector.
+
+- **Arguments**:  
+  This script does not require any arguments.
+
+- **Dependencies**:  
+  No external dependencies. The script uses standard R functions (`print`, `paste`, `class`, `ls`) available in all R installations.
+
+- **Usage**:  
+  1. Run the script using the following syntax:
+     ```bash
+     Rscript boilerplate.R
+     ```
+  - The script will:
+    - Print the type of each argument passed to `MyFunction`.
+    - Test `MyFunction` with numeric and character arguments.
+    - List functions matching the pattern `MyFun*`.
+    - Output the class of `MyFunction`.
+
+- **Additional Notes**:  
+  - The script includes test cases for both numeric and character input.
+  - You can modify or extend `MyFunction` to accept other types of arguments or perform additional operations.
+
+### R_conditionals.R
+
+- **Description**:  
+  This script contains three functions to check if a number is even, a power of 2, or a prime number.
+
+  - **Functions**:
+    1. `is.even(n)`: Checks if a number `n` is even. Returns a message indicating whether the number is even or odd.
+    2. `is.power2(n)`: Checks if a number `n` is a power of 2. Returns a message indicating whether the number is a power of 2 or not.
+    3. `is.prime(n)`: Checks if a number `n` is prime. Returns a message indicating whether the number is prime, composite, or a special case (0 or 1).
+
+  - **Arguments**:  
+    No arguments are required when running the script.
+
+- **Dependencies**:  
+  - No external libraries or packages are required. The script uses standard R functions.
+
+- **Usage**:  
+  1. To run the script, use the following command in a terminal:
+     ```bash
+     Rscript R_conditionals.R
+     ```
+  - The script will:
+    - Define the three functions (`is.even`, `is.power2`, and `is.prime`).
+    - Test the functions with specific values (e.g., 6 for `is.even`, 8 for `is.power2`, and 14 for `is.prime`).
+
+- **Additional Notes**:  
+  - You can modify the test cases in the script to check other numbers for evenness, power of 2, or prime status.
+  - The functions can also be used interactively in an R session after sourcing the script.
+
+### treeheights.R
+
+- **Description**:  
+  This script defines a function, `TreeHeight`, to calculate the height of a tree based on the distance from the tree's base and the angle of elevation to the top of the tree.
+
+  - **Function**:
+    - `TreeHeight(degrees, distance)`: 
+      - **Arguments**:
+        - `degrees`: The angle of elevation to the top of the tree, in degrees.
+        - `distance`: The horizontal distance from the base of the tree, in meters (or other consistent units).
+      - **Output**: Prints and returns the calculated height of the tree in the same units as `distance`.
+
+  - **Arguments**:  
+    No arguments are required when running the script itself. The function `TreeHeight` takes two inputs: `degrees` and `distance`.
+
+- **Dependencies**:  
+  No external libraries are required; the script uses standard R functions (`pi`, `tan`).
+
+- **Usage**:  
+  1. To run the script, use the following command in a terminal:
+     ```bash
+     Rscript treeheights.R
+     ```
+  - The script will:
+    - Define the `TreeHeight` function.
+    - Test the function with an example angle of 37 degrees and a distance of 40 meters.
+
+- **Additional Notes**:  
+  - You can modify the test values to check the height calculation for other trees by changing the `degrees` and `distance` arguments.
+  - The function can also be used interactively in an R session by sourcing the script.
+
+### Vectorise.R
+
+- **Description**:  
+  This script compares the execution time of summing all elements in a matrix using two methods:
+  - A custom function that uses nested loops.
+  - R's built-in vectorized `sum()` function, which is optimized for performance.
+
+  - **Functions**:
+    - `SumAllElements(M)`: A custom function that takes a matrix `M` and calculates the sum of its elements using nested loops.
+
+  - **Arguments**:  
+    This script does not require any arguments when running.
+
+- **Dependencies**:  
+  No external dependencies. The script uses standard R functions like `system.time` and `sum`.
+
+- **Usage**:  
+  1. To run the script, use the following command in a terminal:
+     ```bash
+     Rscript Vectorise.R
+     ```
+  - The script will:
+    - Generate a 1000x1000 matrix of random values.
+    - Measure and display the time taken to sum all elements using both the custom function and the built-in `sum()` function.
+
+- **Additional Notes**:  
+  - This example highlights the efficiency benefits of vectorized functions in R.
+  - The `system.time` function is used to measure the time required by each method, demonstrating the performance difference between a loop-based approach and vectorization.
+
+### preallocate.R
+
+- **Description**:  
+  This script compares the time efficiency of two methods for growing a vector in R:
+  - A function that grows a vector within a loop without preallocation (`NoPreallocFun`).
+  - A function that grows a vector with preallocation (`PreallocFun`).
+  
+  It demonstrates how preallocating memory for a vector improves performance in R.
+
+  - **Functions**:
+    1. `NoPreallocFun(x)`: A function that grows a vector by concatenating elements within a loop. This approach requires R to repeatedly reallocate memory, making it slower.
+    2. `PreallocFun(x)`: A function that preallocates a vector and assigns elements directly, avoiding repeated memory allocation and improving speed.
+
+  - **Arguments**:  
+    This script does not require any arguments when running.
+
+- **Dependencies**:  
+  No external dependencies. The script uses standard R functions like `system.time`, `vector`, and `rep`.
+
+- **Usage**:  
+  1. To run the script, use the following command in a terminal:
+     ```bash
+     Rscript preallocate.R
+     ```
+  - The script will:
+    - Measure and display the time taken to grow a vector using both non-preallocated and preallocated approaches.
+    - Demonstrate the performance benefit of preallocation in R.
+
+- **Additional Notes**:  
+  - The `system.time` function is used to measure the time required by each method, highlighting the efficiency of preallocation.
+  - This example is particularly useful for understanding the impact of preallocation in R, especially when working with large data structures.
+
+### apply1.R
+
+- **Description**:  
+  This script demonstrates the use of the `apply` function in R to calculate row and column statistics in a matrix. It:
+  - Generates a random 10x10 matrix.
+  - Computes the mean and variance for each row.
+  - Computes the mean for each column.
+
+  - **Functions**:
+    - `apply(M, 1, mean)`: Calculates the mean of each row.
+    - `apply(M, 1, var)`: Calculates the variance of each row.
+    - `apply(M, 2, mean)`: Calculates the mean of each column.
+
+  - **Arguments**:  
+    No arguments are required to run this script.
+
+- **Dependencies**:  
+  No external dependencies are required; it uses R’s built-in functions.
+
+- **Usage**:  
+  1. Run the script with the following command:
+     ```bash
+     Rscript apply1.R
+     ```
+  - The script will print:
+    - The mean and variance of each row.
+    - The mean of each column.
+
+- **Additional Notes**:  
+  - This script highlights the efficiency of the `apply` function for matrix operations in R.
+  - The `apply` function allows for concise and efficient calculations across rows and columns.
+
+### apply2.R
+
+- **Description**:  
+  This script demonstrates using the `apply` function in R to apply a custom function to each row of a matrix. It creates a 10x10 matrix of random values and applies a function that multiplies each row by 100 if the row sum is positive.
+
+  - **Functions**:
+    - `SomeOperation(v)`: A custom function that checks if the sum of a vector `v` is greater than zero. If true, it multiplies each element in the vector by 100; otherwise, it returns the vector unchanged.
+    - `apply(M, 1, SomeOperation)`: Uses `apply` to apply `SomeOperation` to each row of matrix `M`.
+
+  - **Arguments**:  
+    No arguments are required to run this script.
+
+- **Dependencies**:  
+  No external dependencies are required; it uses R’s built-in functions.
+
+- **Usage**:  
+  1. Run the script with the following command:
+     ```bash
+     Rscript apply2.R
+     ```
+  - The script will:
+    - Define and apply `SomeOperation` to each row of a randomly generated matrix.
+    - Print the result for each row, modified based on the function’s criteria.
+
+### sample.R
+
+- **Description**:  
+  This script demonstrates multiple methods for taking repeated samples from a population in R, including the use of loops with and without preallocation, as well as vectorized functions (`sapply` and `lapply`). It compares the time taken by each method to highlight the efficiency benefits of preallocation and vectorization.
+
+  - **Functions**:
+    1. `myexperiment(popn, n)`: Takes a sample of size `n` from `popn` without replacement and returns the mean.
+    2. `loopy_sample1(popn, n, num)`: Uses a loop without preallocation to run `num` iterations of `myexperiment`.
+    3. `loopy_sample2(popn, n, num)`: Uses a loop with preallocation to run `num` iterations of `myexperiment`.
+    4. `loopy_sample3(popn, n, num)`: Uses a loop with preallocation on a list to run `num` iterations of `myexperiment`.
+    5. `lapply_sample(popn, n, num)`: Uses `lapply` to vectorize `num` iterations of `myexperiment`.
+    6. `sapply_sample(popn, n, num)`: Uses `sapply` to vectorize `num` iterations of `myexperiment` with simplified output.
+
+  - **Arguments**:  
+    No arguments are required when running the script.
+
+- **Dependencies**:  
+  No external dependencies; the script uses base R functions.
+
+- **Usage**:  
+  1. Run the script with the following command:
+     ```bash
+     Rscript sample.R
+     ```
+  - The script will:
+    - Generate a population and take repeated samples.
+    - Measure the execution time for each method and print the results.
+
+- **Additional Notes**:  
+  - This script provides a performance comparison of different sampling approaches, illustrating the speed of preallocation and vectorization in R.
+  - Setting the seed ensures reproducibility of the random sampling.
+
+### browse.R
+
+- **Description**:  
+  This script simulates exponential growth with a custom function and includes a debugging point using the `browser()` function, which pauses execution and opens an interactive debugging session during the first iteration of the loop.
+
+  - **Functions**:
+    - `Exponential(N0, r, generations)`: 
+      - **Arguments**:
+        - `N0`: Initial population size (default is 1).
+        - `r`: Growth rate (default is 1).
+        - `generations`: Number of generations to simulate (default is 10).
+      - **Output**: A vector of population sizes over each generation.
+      - **Browser Debugging**: The function enters debugging mode (via `browser()`) during the loop, allowing inspection of variables.
+
+  - **Arguments**:  
+    No arguments are required when running the script.
+
+- **Dependencies**:  
+  No external dependencies are required; it uses R’s built-in functions.
+
+- **Usage**:  
+  1. Run the script with the following command:
+     ```bash
+     Rscript browse.R
+     ```
+  - The script will:
+    - Simulate exponential growth over several generations.
+    - Enter debugging mode during the first loop iteration, where you can inspect variables.
+    - Plot the growth model after completion.
+
+- **Additional Notes**:  
+  - The `browser()` function is useful for interactive debugging, allowing you to view and inspect variables during the loop.
+  - Once in browser mode, you can type commands to inspect variables (`N`, `t`, etc.) and step through each iteration.
+
+### try.R
+
+- **Description**:  
+  This script demonstrates error handling in R when calculating the mean of a sample from a population. It includes a custom function, `doit`, which samples from a population and calculates the mean if the sample has enough unique values. If not, it triggers an error. The script uses `try` to handle these errors, allowing continued execution even when some samples do not meet the unique value threshold.
+
+  - **Functions**:
+    - `doit(x)`: Samples a population `x` with replacement and calculates the mean if there are more than 30 unique values. If not, it raises an error.
+    - `try(doit(x), FALSE)`: Wraps `doit` calls within `try` to handle errors without stopping the script.
+
+  - **Arguments**:  
+    No command-line arguments are required to run this script.
+
+- **Dependencies**:  
+  Requires no additional libraries; it uses base R functions.
+
+- **Usage**:  
+  1. Run the script with:
+     ```bash
+     Rscript try.R
+     ```
+  - The script will:
+    - Generate a population of random values.
+    - Attempt multiple samples from this population, calculate the mean for each, and handle errors where unique values are insufficient.
+    - Store results (including errors) in a list.
+
+- **Additional Notes**:  
+  - The `try` function prevents the script from stopping due to errors, storing failed attempts in the results for later inspection.
+  - Setting a seed ensures that random sampling is reproducible.
+
+### DataWrang.R
+
+- **Description**:  
+  This script loads and wrangles the Pound Hill dataset, which initially lacks proper headers. The script handles missing values, reshapes the data from wide to long format, and performs some exploratory analysis.
+
+  - **Functions and Workflow**:
+    - **Load Data**: Loads the main dataset as a matrix and the metadata with headers.
+    - **Inspect and Transpose**: Displays structure, transposes to make species columns.
+    - **Data Cleaning**: Replaces blank cells with zeros to handle missing values.
+    - **Reshape Data**: Converts the dataset from wide to long format using `melt` from `reshape2`.
+    - **Data Exploration**: Uses tidyverse functions to summarize, filter, and manipulate the data for preliminary insights.
+
+  - **Arguments**:  
+    No command-line arguments are required.
+
+- **Dependencies**:  
+  Requires the following R packages:
+  - `reshape2`: For reshaping data with `melt`.
+  - `tidyverse`: For data manipulation functions such as `filter` and `glimpse`.
+
+- **Usage**:  
+  1. Run the script with:
+     ```bash
+     Rscript DataWrang.R
+     ```
+  - The script will:
+    - Load and clean the dataset.
+    - Convert it to long format.
+    - Perform exploratory data analysis on species counts.
+
+- **Additional Notes**:  
+  - Ensure `PoundHillData.csv` and `PoundHillMetaData.csv` are available in the specified data directory.
+  - This script demonstrates a sequence of data wrangling and exploration tasks that can be extended for further analysis.
+
+### SQLinR.R
+
+- **Description**:  
+  This script demonstrates basic SQLite database operations in R. It creates an SQLite database, defines a table, inserts data, performs SQL queries, and imports additional data from a CSV file. The script also includes cleanup steps to close the database connection and remove data frames from the environment.
+
+  - **Functions and Workflow**:
+    - **Database Connection**: Opens a connection to an SQLite database (creates `Test.sqlite` if it does not exist).
+    - **Create Table**: Defines a `Consumer` table to store species data.
+    - **Insert Data**: Adds rows to the `Consumer` table using SQL `INSERT` statements.
+    - **Query Data**: Retrieves records from `Consumer` using `SELECT` statements, including a conditional query.
+    - **Import Data from CSV**: Imports data from `Resource.csv` and writes it to the database as a new table.
+    - **Database Inspection**: Lists tables, displays columns, and reads data from the database.
+    - **Cleanup**: Closes the database connection and removes data frames from the environment.
+
+  - **Arguments**:  
+    No command-line arguments are required to run this script.
+
+- **Dependencies**:  
+  - **sqldf**: To install and manage SQLite databases in R.
+  - **tidyverse**: If required for additional data manipulation (optional).
+
+- **Usage**:  
+  1. Ensure `sqldf` is installed:
+     ```r
+     install.packages("sqldf")
+     ```
+  2. Run the script with:
+     ```bash
+     Rscript SQLinR.R
+     ```
+  - The script will:
+    - Create and populate an SQLite database.
+    - Perform SQL queries.
+    - Import additional data from a CSV file (`Resource.csv`).
+
+- **Additional Notes**:  
+  - Ensure `PoundHillData.csv` and `Resource.csv` are available in the specified data directory.
+  - This script is a useful template for working with SQLite databases in R.
+  - Closing the database connection at the end of the script prevents potential data issues or memory leaks.
+
+### Girko.R
+
+- **Description**:  
+  This script generates a visualization of eigenvalues from a random matrix overlaid on an ellipse representing a circular distribution. The plot is saved to a PDF file in the `results` directory.
+
+  - **Functions and Workflow**:
+    - **Directory Creation**: Checks if the `results` directory exists; if not, it creates it to store the output PDF.
+    - **Ellipse Generation**: Defines `build_ellipse`, which constructs an ellipse data frame based on the specified radius.
+    - **Matrix Generation**: Creates a 250x250 matrix of normally distributed random numbers.
+    - **Eigenvalue Calculation**: Computes the eigenvalues of the random matrix and stores the real and imaginary components in a data frame.
+    - **Plotting**: Plots the eigenvalues overlaid on an ellipse, with additional horizontal and vertical reference lines. The plot is saved as `Girko.pdf` in the `results` directory.
+
+  - **Arguments**:  
+    No command-line arguments are required to run this script.
+
+- **Dependencies**:  
+  Requires the following R package:
+  - `tidyverse`: For data manipulation and plotting functions. Install it with:
+    ```r
+    install.packages("tidyverse")
+    ```
+
+- **Usage**:  
+  1. Run the script with:
+     ```bash
+     Rscript Girko.R
+     ```
+  - The script will:
+    - Generate an ellipse and plot eigenvalues overlaid on it.
+    - Save the plot as `Girko.pdf` in the `results` directory.
+    
+### Mybars.R
+
+
+## Description
+
+This script generates a bar plot with multiple lineranges from a data file and saves the plot as a PDF in the `results` directory. The plot is created using `ggplot2` from the `tidyverse` package, which allows for flexible and clear data visualization.
+
+## Dependencies
+
+- **R version 4.0+**
+- **tidyverse**: The script requires this package for data manipulation and plotting. It will be installed automatically if not already present.
+
+## Usage
+
+1. Place the required input data file `Results.txt` in the `data/` directory.
+
+2. Run the script using one of the following methods:
+
+   - **Command Line with Rscript**: Run the script with Rscript:
+     ```bash
+     Rscript Mybars.R
+     ```
+     
+   - **R Environment**: Run the script directly within an R environment:
+     ```r
+     source("Mybars.R")
+     ```
+
+## Output
+
+The plot will be saved as `MyBars.pdf` in the `results` directory, with:
+- Three distinct lineranges in different colors.
+- Custom x and y axis labels.
+- Labels positioned below the x-axis for each `x` value.
+
+If the `results/` directory does not exist, the script will create it.
+
+
+- **Additional Notes**:  
+  - Ensure that `tidyverse` is installed before running the script.
+  - The PDF file is saved in `../results/Mybars.pdf` with page dimensions of 11.7 x 8.3 inches.
+
+### plotLin.R
+
+## Description
+
+This script generates a scatter plot of simulated data points with a linear regression line overlaid. The color of each data point reflects the absolute residual from the linear regression model, ranging from black (low residuals) to red (high residuals). The plot also includes a mathematical expression label and is saved as a PDF in the results directory.
+
+## Dependencies
+
+- **R version 4.0+**
+- **tidyverse**: The script requires this package for data manipulation and plotting. It will be installed automatically if not already present.
+
+## Usage
+
+
+2. Run the script using one of the following methods:
+
+   - **Command Line with Rscript**: Run the script with Rscript:
+     ```bash
+     Rscript plotLin.R
+     ```
+     
+   - **R Environment**: Run the script directly within an R environment:
+     ```r
+     source("plotLin.R")
+     ```
+
+## Output
+
+The plot is saved as plotLin.pdf in the results directory, with:
+
+- Scatter points representing the simulated data.
+- A linear regression line shown in red.
+- Color gradient of points based on the absolute residuals.
+- Custom x-axis label with a mathematical expression.
+- A mathematical label displayed as an annotation within the plot.
+- If the results/ directory does not exist, the script will create it automatically.
+
+**********************************************************************
+
+Results directory is empty - good! 
+
+Found 18 code files: break.R, sample.R, R_conditionals.R, apply1.R, basic_io.R, Girko.R, boilerplate.R, apply2.R, treeheights.R, DataWrang.R, try.R, Control_flow.R, Vectorize.R, Mybars.R, plotLin.R, next.R, browse.R, preallocate.R
+
+======================================================================
+Testing script/code files...
+
+======================================================================
+Inspecting script file break.R...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+# Script: break.R
+# Description: This script demonstrates a simple while loop that runs until a break condition is met.
+# Arguments: None
+# Date: Oct 2024
+
+# Usage:
+# This script showcases how a while loop can be used in R, printing a value until a specific break condition is met.
+# 
+# To run the script:
+# Rscript break.R
+#
+# No arguments are required.
+
+# Example of a while loop that breaks when i reaches 10
+i <- 0  # Initialize i
+
+while(i < Inf){  # Loop until i reaches infinity (or until break)
+  if (i == 10){
+    break  # Exit the loop when i equals 10
+  } else {
+    # Print the value of i
+    cat("i equals ", i , "\n")
+    i <- i + 1  # Update i
+  }
+}
+
+# The script prints values of i from 0 to 9 until the break condition (i == 10) is met
+
+
+
+
+**********************************************************************
+
+Testing break.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+i equals  0 
+i equals  1 
+i equals  2 
+i equals  3 
+i equals  4 
+i equals  5 
+i equals  6 
+i equals  7 
+i equals  8 
+i equals  9 
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.10934s
+
+======================================================================
+Inspecting script file sample.R...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+# Script: sample.R
+# Description: This script demonstrates various methods for sampling from a population, including loops with and without preallocation, and vectorized functions `sapply` and `lapply`.
+# Arguments: None
+# Date: Oct 2024
+
+# Usage:
+# This script defines functions that run a sampling experiment multiple times on a population, then compares the time taken by different methods.
+#
+# To run the script:
+# Rscript sample.R
+#
+# No arguments are required.
+
+######### Functions ##########
+
+## A function to take a sample of size n from a population "popn" and return its mean
+myexperiment <- function(popn, n) {
+  pop_sample <- sample(popn, n, replace = FALSE)  # Sample `n` items from `popn` without replacement
+  return(mean(pop_sample))  # Return the mean of the sampled values
+}
+
+## Calculate means using a FOR loop on a vector without preallocation:
+loopy_sample1 <- function(popn, n, num) {
+  result1 <- vector()  # Initialize an empty vector
+  for(i in 1:num) {
+    result1 <- c(result1, myexperiment(popn, n))  # Append each mean to `result1`, resizing each time
+  }
+  return(result1)  # Return all calculated means
+}
+
+## To run "num" iterations of the experiment using a FOR loop on a vector with preallocation:
+loopy_sample2 <- function(popn, n, num) {
+  result2 <- vector(, num)  # Preallocate vector with expected size `num`
+  for(i in 1:num) {
+    result2[i] <- myexperiment(popn, n)  # Store each mean at index `i`
+  }
+  return(result2)
+}
+
+## To run "num" iterations of the experiment using a FOR loop on a list with preallocation:
+loopy_sample3 <- function(popn, n, num) {
+  result3 <- vector("list", num)  # Preallocate a list of length `num`
+  for(i in 1:num) {
+    result3[[i]] <- myexperiment(popn, n)  # Store each mean in the list at index `i`
+  }
+  return(result3)
+}
+
+## To run "num" iterations of the experiment using vectorization with lapply:
+lapply_sample <- function(popn, n, num) {
+  result4 <- lapply(1:num, function(i) myexperiment(popn, n))  # Apply `myexperiment` function `num` times
+  return(result4)
+}
+
+## To run "num" iterations of the experiment using vectorization with sapply:
+sapply_sample <- function(popn, n, num) {
+  result5 <- sapply(1:num, function(i) myexperiment(popn, n))  # Same as lapply but simplifies output to a vector
+  return(result5)
+}
+
+# Set random seed for reproducibility
+set.seed(12345)
+popn <- rnorm(10000)  # Generate a population of 10,000 random values from a normal distribution
+hist(popn)  # Plot histogram of population
+
+n <- 100 # Sample size for each experiment
+num <- 1000  # Number of times to repeat the experiment
+
+# Measure and print time taken by each method
+print("Using loops without preallocation on a vector took:")
+print(system.time(loopy_sample1(popn, n, num)))
+
+print("Using loops with preallocation on a vector took:")
+print(system.time(loopy_sample2(popn, n, num)))
+
+print("Using loops with preallocation on a list took:")
+print(system.time(loopy_sample3(popn, n, num)))
+
+print("Using the vectorized sapply function (on a list) took:")
+print(system.time(sapply_sample(popn, n, num)))
+
+print("Using the vectorized lapply function (on a list) took:")
+print(system.time(lapply_sample(popn, n, num)))
+
+
+
+**********************************************************************
+
+Testing sample.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+[1] "Using loops without preallocation on a vector took:"
+   user  system elapsed 
+  0.021   0.008   0.030 
+[1] "Using loops with preallocation on a vector took:"
+   user  system elapsed 
+  0.014   0.000   0.013 
+[1] "Using loops with preallocation on a list took:"
+   user  system elapsed 
+  0.013   0.000   0.012 
+[1] "Using the vectorized sapply function (on a list) took:"
+   user  system elapsed 
+  0.011   0.000   0.011 
+[1] "Using the vectorized lapply function (on a list) took:"
+   user  syst
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.25564s
+
+======================================================================
+Inspecting script file R_conditionals.R...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+# Script: R_conditionals.R
+# Description: This script contains three functions to check if a number is even, a power of 2, or a prime number.
+# Arguments: None
+# Date: Oct 2024
+
+# Usage:
+# This script defines three functions:
+# 1. `is.even`: Checks if a number is even.
+# 2. `is.power2`: Checks if a number is a power of 2.
+# 3. `is.prime`: Checks if a number is a prime.
+#
+# To run the script:
+# Rscript R_conditionals.R
+#
+# No arguments are required for running this script.
+
+# Function to check if a number is even
+is.even <- function(n = 2) {
+  if (n %% 2 == 0) {
+    return(paste(n, 'is even!'))
+  } else {
+    return(paste(n, 'is odd!'))
+  }
+}
+
+# Test the function
+is.even(6)
+
+# Function to check if a number is a power of 2
+is.power2 <- function(n = 2) {
+  if (log2(n) %% 1 == 0) {
+    return(paste(n, 'is a power of 2!'))
+  } else {
+    return(paste(n, 'is not a power of 2!'))
+  }
+}
+
+# Test the function
+is.power2(8)
+
+# Function to check if a number is prime
+is.prime <- function(n) {
+  if (n == 0) {
+    return(paste(n, 'is zero!'))  # Statement to signify 0
+  } else if (n == 1) {
+    return(paste(n, 'is just a unit!'))  # Statement for 1
+  }
+  
+  ints <- 2:(n-1)  # Creates a range from 2 to n-1
+  
+  if (all(n %% ints != 0)) {  # Checks if n is divisible by any number in the range
+    return(paste(n, 'is a prime!'))
+  } else {
+    return(paste(n, 'is a composite!'))
+  }
+}
+
+# Test the function
+is.prime(14)
+
+
+
+
+
+**********************************************************************
+
+Testing R_conditionals.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+[1] "6 is even!"
+[1] "8 is a power of 2!"
+[1] "14 is a composite!"
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.09036s
+
+======================================================================
+Inspecting script file apply1.R...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+# Script: apply1.R
+# Description: This script creates a random matrix and demonstrates the use of the `apply` function to calculate row and column means and variances.
+# Arguments: None
+# Date: Oct 2024
+
+# Usage:
+# This script generates a 10x10 matrix with random values and calculates:
+# 1. The mean of each row.
+# 2. The variance of each row.
+# 3. The mean of each column.
+#
+# To run the script:
+# Rscript apply1.R
+#
+# No arguments are required.
+
+## Build a random matrix
+M <- matrix(rnorm(100), 10, 10)
+# Creates a 10x10 matrix `M` filled with 100 random numbers from a standard normal distribution (mean = 0, sd = 1).
+
+## Take the mean of each row
+RowMeans <- apply(M, 1, mean)
+print(RowMeans)
+# Uses `apply` to calculate the mean of each row in matrix `M`.
+# The `1` argument specifies row-wise operation.
+# Stores the row means in `RowMeans` and prints them.
+
+## Now the variance
+RowVars <- apply(M, 1, var)
+print(RowVars)
+# Uses `apply` to calculate the variance of each row in matrix `M`.
+# The `1` argument specifies row-wise operation.
+# Stores the row variances in `RowVars` and prints them.
+
+## By column
+ColMeans <- apply(M, 2, mean)
+print(ColMeans)
+# Uses `apply` to calculate the mean of each column in matrix `M`.
+# The `2` argument specifies column-wise operation.
+# Stores the column means in `ColMeans` and prints them.
+
+
+**********************************************************************
+
+Testing apply1.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+ [1]  0.34406942 -0.04964721  0.10833463  0.22431914  0.09158868 -0.01549311
+ [7] -0.10096509  0.53781114 -0.48691704  0.24984068
+ [1] 0.8611231 0.5485644 0.9019506 1.8506882 0.8678135 1.0851400 0.5541678
+ [8] 1.4918573 1.2738958 0.8450450
+ [1]  0.08067162 -0.36663574 -0.24447882  0.11811972  0.44936812  0.17459873
+ [7]  0.29107317  0.18920996 -0.25547146  0.46648594
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.09171s
+
+======================================================================
+Inspecting script file basic_io.R...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+# Script: basic_io.R
+# Description: A simple script to illustrate R input-output operations.
+# Arguments: None
+# Date: Oct 2024
+
+# Usage:
+# This script demonstrates basic input-output functions in R.
+# It reads data from a CSV file, writes it to another file, and performs various output manipulations such as appending data, writing with row names, and omitting column names.
+#
+# To run this script:
+# 1. Make sure the working directory and file paths are correct.
+# 2. Execute the script by running it in an R environment or using the command:
+# Rscript basic_io.R.R
+#
+# Dependencies:
+# This script requires an existing CSV file (../data/trees.csv) to be available in the specified location.
+#
+# Output:
+# The script creates and modifies files in the ../results/ directory.
+
+# Set working directory
+setwd("./Documents/CMEECourseWork/week3/code")  # Relative to current working directory
+
+# Read data from CSV file
+MyData <- read.csv("../data/trees.csv", header = TRUE) # Import CSV with headers
+
+# Write data to new CSV file
+write.csv(MyData, "../results/MyData.csv") # Write data to a new file
+
+# Append a specific row to the CSV file
+write.table(MyData[1,], file = "../results/MyData.csv", append=TRUE) # Append the first row of MyData
+
+# Write data with row names
+write.csv(MyData, "../results/MyData.csv", row.names=TRUE) # Include row names in the output file
+
+# Write data without column names
+write.table(MyData, "../results/MyData.csv", col.names=FALSE) # Omit column names in the output file
+
+# Print completion message
+print("Script complete!")
+
+# Command for running the script and creating an output file:
+# R CMD BATCH IOR_Script.R MyResults.Rout
+
+**********************************************************************
+
+Testing basic_io.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Error in setwd("./Documents/CMEECourseWork/week3/code") : 
+  cannot change working directory
+Execution halted
+
+======================================================================
+Inspecting script file Girko.R...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+# Script: Girko_plot.R
+# Description: This script generates a plot of eigenvalues overlaid on an ellipse, representing a circular distribution of eigenvalues. The plot is saved as a PDF.
+# Arguments: None
+# Date: Oct 2024
+
+# Usage:
+# This script calculates eigenvalues of a random matrix, constructs an ellipse based on matrix size, and visualizes the results in a PDF plot.
+# It creates a `results` directory (if it doesn't exist) and saves the output file as `Girko.pdf` in that directory.
+
+# Dependencies:
+# Requires the `tidyverse` package for data manipulation and plotting. Install it if not already installed:
+# install.packages("tidyverse")
+
+# To run the script:
+# Rscript Girko.R
+#
+# The script will:
+# 1. Create a `results` directory (if it does not exist).
+# 2. Generate an ellipse and plot eigenvalues overlaid on it.
+# 3. Save the plot as `Girko.pdf` in the `results` directory.
+
+# Create the results directory if it does not exist
+if (!dir.exists("../results")) {
+  dir.create("../results")
+}
+
+pdf("../results/Girko.pdf", # Open blank pdf page using a relative path
+    11.7, 8.3) # These numbers are page dimensions in inches
+
+require(tidyverse)
+
+build_ellipse <- function(hradius, vradius) { # function that returns an ellipse
+  npoints = 250 # Define the number of points for smoothness
+  a <- seq(0, 2 * pi, length = npoints + 1) # Generate angles for ellipse points
+  x <- hradius * cos(a) # Calculate x-coordinates
+  y <- vradius * sin(a)  # Calculate y-coordinates
+  return(data.frame(x = x, y = y)) # Return data frame of ellipse points
+}
+
+N <- 250 # Assign size of the matrix
+
+M <- matrix(rnorm(N * N), N, N) # Generate an N x N matrix of random values
+
+eigvals <- eigen(M)$values # Calculate the eigenvalues of matrix M
+
+eigDF <- data.frame("Real" = Re(eigvals), "Imaginary" = Im(eigvals)) # Build a data frame with real and imaginary parts
+
+my_radius <- sqrt(N) # Set radius of the ellipse to sqrt(N)
+
+ellDF <- build_ellipse(my_radius, my_radius) # Generate ellipse data with defined radius
+
+names(ellDF) <- c("Real", "Imaginary") # Rename columns for ggplot compatibility
+
+# plot the eigenvalues
+p <- ggplot(eigDF, aes(x = Real, y = Imaginary))
+p <- p +
+  geom_point(shape = I(3)) + # Plot points representing eigenvalues
+  theme(legend.position = "none") # Remove legend
+
+# now add the vertical and horizontal line
+p <- p + geom_hline(aes(yintercept = 0)) # Add horizontal line at y = 0
+p <- p + geom_vline(aes(xintercept = 0)) # Add vertical line at x = 0
+
+# finally, add the ellipse
+p <- p + geom_polygon(data = ellDF, aes(x = Real, y = Imaginary, alpha = 1/20, fill = "red")) # Add red ellipse
+
+print(p)  # Output plot to PDF
+
+graphics.off()  # Close the PDF device to save file
+
+**********************************************************************
+
+Testing Girko.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Loading required package: tidyverse
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+======================================================================
+Inspecting script file boilerplate.R...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+# Script: boilerplate.R
+# Description: A boilerplate R script demonstrating how to create and test a simple function that accepts two arguments and prints their types.
+# Arguments: None
+# Date: Oct 2024
+
+# Usage:
+# This script defines a simple function `MyFunction` that takes two arguments, prints their types, and returns them as a vector.
+# 
+# To run the script:
+# Rscript boilerplate.R
+#
+# No arguments are required.
+
+# Define a function that prints argument types and returns them
+MyFunction <- function(Arg1, Arg2) {
+  
+  # Statements involving Arg1, Arg2:
+  print(paste("Argument", as.character(Arg1), "is a", class(Arg1))) # Print Arg1's type
+  print(paste("Argument", as.character(Arg2), "is a", class(Arg2))) # Print Arg2's type
+  
+  return(c(Arg1, Arg2)) # Return both arguments as a vector (optional but useful)
+}
+
+# Test the function with numerical arguments
+MyFunction(1, 2)
+
+# Test the function with character arguments
+MyFunction("Riki", "Tiki")
+
+# List functions starting with "MyFun"
+ls(pattern = "MyFun*")
+
+# Check the class of MyFunction
+class(MyFunction)
+
+**********************************************************************
+
+Testing boilerplate.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+[1] "Argument 1 is a numeric"
+[1] "Argument 2 is a numeric"
+[1] 1 2
+[1] "Argument Riki is a character"
+[1] "Argument Tiki is a character"
+[1] "Riki" "Tiki"
+[1] "MyFunction"
+[1] "function"
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.10018s
+
+======================================================================
+Inspecting script file apply2.R...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+# Script: apply2.R
+# Description: This script demonstrates the use of `apply` with a custom function to modify matrix rows based on a condition.
+# Arguments: None
+# Date: Oct 2024
+
+# Usage:
+# This script defines a custom function `SomeOperation`, which multiplies a vector by 100 if its sum is greater than zero.
+# It then applies this function across each row of a 10x10 matrix of random numbers.
+#
+# To run the script:
+# Rscript apply2.R
+#
+# No arguments are required.
+
+# Define a custom function that checks the sum of the vector `v`
+SomeOperation <- function(v) {  # Takes a vector `v` as input
+  if (sum(v) > 0) {  # If the sum of the elements in `v` is positive
+    return(v * 100)  # Multiply each element by 100
+  } else {
+    return(v)  # Otherwise, return `v` unchanged
+  }
+}
+
+# Create a 10x10 matrix with random values from a standard normal distribution
+M <- matrix(rnorm(100), 10, 10)
+
+# Apply the custom function `SomeOperation` to each row of the matrix `M`
+print(apply(M, 1, SomeOperation))
+# The `apply` function passes each row (as a vector) to `SomeOperation`, and the result is printed.
+
+
+**********************************************************************
+
+Testing apply2.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+            [,1]        [,2]        [,3]        [,4]        [,5]       [,6]
+ [1,]  -98.01380 -0.95324531 -1.27588145  0.08037672 -0.79927658  2.8416856
+ [2,]  120.42823  0.35055551 -0.79706546 -0.93002735  0.45546873 -1.2307723
+ [3,]  111.76937  0.53579955 -0.15521872 -0.61704136  0.71558184 -1.3357642
+ [4,]  -44.22916 -0.70255436 -0.08466595 -0.40082002 -0.44948694 -0.9982593
+ [5,]  129.39667 -0.06623033  1.41041660  0.27754953  0.45539860  0.6493679
+ [6,]   31.14884  0.17050257  0.12017665 -1.6
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.10273s
+
+======================================================================
+Inspecting script file treeheights.R...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+# Script: treeheights.R
+# Description: This script contains a function to calculate the height of a tree given the distance from its base and the angle of elevation to its top.
+# Arguments: None
+# Date: Oct 2024
+
+# Usage:
+# This script defines the `TreeHeight` function, which calculates the height of a tree using the distance and angle of elevation.
+# 
+# To run the script:
+# Rscript treeheights.R
+#
+# No arguments are required for running this script.
+
+# Function to calculate the height of a tree
+TreeHeight <- function(degrees, distance) {
+  radians <- degrees * pi / 180  # Convert angle from degrees to radians
+  height <- distance * tan(radians)  # Calculate height using trigonometric formula
+  print(paste("Tree height is:", height))  # Print the height of the tree
+  
+  return(height)  # Return the calculated height
+}
+
+# Test the function
+TreeHeight(37, 40)
+
+
+
+**********************************************************************
+
+Testing treeheights.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+[1] "Tree height is: 30.1421620041118"
+[1] 30.14216
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.09326s
+
+======================================================================
+Inspecting script file DataWrang.R...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+# Script: DataWrang.R
+# Description: This script loads, inspects, transposes, and wrangles the Pound Hill dataset. It demonstrates data cleaning, reshaping, and initial exploration using the tidyverse.
+# Arguments: None
+# Date: Oct 2024
+
+# Usage:
+# This script loads a dataset without proper headers, wrangles it to handle missing values, reshapes it to long format, and performs data exploration.
+#
+# To run the script:
+# Rscript DataWrang.R
+#
+# No arguments are required.
+
+
+################################################################
+################## Wrangling the Pound Hill Dataset ############
+################################################################
+
+############# Load the dataset ###############
+# Load the dataset as a matrix since the raw data do not have proper headers
+MyData <- as.matrix(read.csv("../data/PoundHillData.csv", header = FALSE))
+
+# Load metadata with headers (specified in the CSV), using ';' as the separator
+MyMetaData <- read.csv("../data/PoundHillMetaData.csv", header = TRUE, sep = ";")
+
+############# Inspect the dataset ###############
+# Display the first few rows of the dataset to get a quick look at its contents
+head(MyData)
+
+# Check the dimensions (number of rows and columns) of the dataset
+dim(MyData)
+
+# Display the structure of the dataset, including data types of columns
+str(MyData)
+
+# Open an interactive editor to view and possibly edit the dataset
+fix(MyData)  # Similarly, this command can be used to inspect and edit the data
+fix(MyMetaData)
+
+############# Transpose ###############
+# Transpose the data so that species are in columns and treatments are in rows
+MyData <- t(MyData)
+
+# Reinspect the first few rows of the transposed data
+head(MyData)
+
+# Check the new dimensions of the transposed dataset
+dim(MyData)
+
+############# Replace species absences with zeros ###############
+# Replace any empty strings (indicating absence of species) in the dataset with zeros
+MyData[MyData == ""] = 0
+
+############# Convert raw matrix to data frame ###############
+# Convert the matrix (excluding the first row) to a data frame, while ensuring that strings are not converted to factors
+TempData <- as.data.frame(MyData[-1,], stringsAsFactors = FALSE)
+
+# Set the column names of the new data frame using the first row of the original matrix (which contains the species names)
+colnames(TempData) <- MyData[1,]
+
+############# Convert from wide to long format ###############
+# Load the reshape2 package to use the melt function for reshaping the data
+require(reshape2)
+
+# Use the melt function to convert the data from wide format (species in columns) to long format
+# 'Cultivation', 'Block', 'Plot', and 'Quadrat' remain as identifiers; 'Species' becomes a variable
+# 'Count' stores the respective values of the species counts
+MyWrangledData <- melt(TempData, id = c("Cultivation", "Block", "Plot", "Quadrat"), variable.name = "Species", value.name = "Count")
+
+# Convert several columns to factors for categorical analysis
+MyWrangledData[, "Cultivation"] <- as.factor(MyWrangledData[, "Cultivation"])
+MyWrangledData[, "Block"] <- as.factor(MyWrangledData[, "Block"])
+MyWrangledData[, "Plot"] <- as.factor(MyWrangledData[, "Plot"])
+MyWrangledData[, "Quadrat"] <- as.factor(MyWrangledData[, "Quadrat"])
+
+# Convert the 'Count' column to integer type as it represents numerical species counts
+MyWrangledData[, "Count"] <- as.integer(MyWrangledData[, "Count"])
+
+# Check the structure of the wrangled dataset to verify data types and organization
+str(MyWrangledData)
+
+# Inspect the first few rows of the wrangled dataset
+head(MyWrangledData)
+
+# Verify the dimensions of the wrangled dataset (number of rows and columns)
+dim(MyWrangledData)
+
+############# Exploring the data (extend the script below)  ###############
+
+# Check the column names of the transposed data matrix (for comparison or debugging purposes)
+colnames(MyData)
+
+# Recreate the temporary data frame from the transposed matrix (without column headers)
+TempData <- as.data.frame(MyData[-1,], stringsAsFactors = FALSE)
+
+# Inspect the first few rows of the recreated temporary data frame
+head(TempData)
+
+#:: allows you to load a desired function from a specific package
+MyWrangledData <- dplyr::as_tibble(MyWrangledData) 
+MyWrangledData
+
+require(tidyverse) #activates packages for use
+tidyverse_packages(include_self = TRUE) # the include_self = TRUE means list "tidyverse" as well 
+
+#is the same as: 
+MyWrangledData <- as_tibble(MyWrangledData) 
+class(MyWrangledData)
+
+glimpse(MyWrangledData) #like str() , but nicer
+
+filter(MyWrangledData, Count>100) #like subset(), but nicer!
+
+slice(MyWrangledData, 10:15) #look at a particular range of data rows
+
+#pipe operator allows you to create a compact sequence of manipulations with your dataset
+MyWrangledData %>%
+  group_by(Species) %>%
+  summarise(avg = mean(Count))
+
+#is the same as 
+aggregate(MyWrangledData$Count, list(MyWrangledData$Species), FUN=mean) 
+
+
+
+**********************************************************************
+
+Testing DataWrang.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+     V1                     V2        V3        V4        V5        V6       
+[1,] "Cultivation"          "october" "october" "october" "october" "october"
+[2,] "Block"                "a"       "a"       "a"       "a"       "a"      
+[3,] "Plot"                 "1"       "1"       "1"       "1"       "1"      
+[4,] "Quadrat"              "Q1"      "Q2"      "Q3"      "Q4"      "Q5"     
+[5,] "Achillea millefolium" "4"       "8"       "3"       "20"      "6"      
+[6,] "Agrostis gigantea"    ""   
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 10.00927s
+
+======================================================================
+Inspecting script file try.R...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+# Script: try.R
+# Description: This script demonstrates handling errors in R when calculating the mean of a sample from a population. The `try` function is used to continue running even when errors occur due to insufficient unique values in a sample.
+# Arguments: None
+# Date: Oct 2024
+
+# Usage:
+# This script defines a function `doit` to calculate the mean of a sampled population if the sample size is sufficient. 
+# It demonstrates handling errors by applying `doit` with `lapply` and capturing errors using `try`.
+#
+# To run the script:
+# Rscript try.R
+#
+# No arguments are required.
+
+# Define a function that samples a population and calculates the mean if sample has more than 30 unique values
+doit <- function(x) {
+  temp_x <- sample(x, replace = TRUE)
+  if(length(unique(temp_x)) > 30) {  # Only take the mean if sample has sufficient unique values
+    print(paste("Mean of this sample was:", as.character(mean(temp_x))))
+  } 
+  else {
+    stop("Couldn't calculate mean: too few unique values!")  # Raise an error if insufficient unique values
+  }
+}
+
+# Set a seed for reproducibility
+set.seed(1345)
+
+# Generate a population of 50 random values from a normal distribution
+popn <- rnorm(50)
+hist(popn)
+
+# Attempt to calculate means for multiple samples with insufficient unique values
+# Uncomment the line below to see error messages due to insufficient unique values
+# lapply(1:15, function(i) doit(popn))
+
+# Use `try` to suppress errors and capture them in the result
+result <- lapply(1:15, function(i) try(doit(popn), FALSE))
+
+# Check the class of `result` to confirm it includes both successful results and errors
+class(result)
+
+# Print the result to inspect successes and stored errors
+result
+
+# Store the results in a manually initialized list
+result <- vector("list", 15)  # Preallocate list for results
+for(i in 1:15) {
+  result[[i]] <- try(doit(popn), FALSE)  # Store each attempt with error handling
+}
+
+
+**********************************************************************
+
+Testing try.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+[1] "Mean of this sample was: -0.11620822588674"
+[1] "Mean of this sample was: -0.0468516755995931"
+[1] "Mean of this sample was: -0.0890228211466614"
+[1] "Mean of this sample was: -0.124229742255296"
+[1] "Mean of this sample was: 0.0314144452816157"
+[1] "Mean of this sample was: -0.233476945796405"
+[1] "Mean of this sample was: -0.196681538928001"
+[1] "Mean of this sample was: 0.0146969612111605"
+[1] "Mean of this sample was: -0.234913159471725"
+[1] "Mean of this sample was: -0.0497464588165691"
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Error in doit(popn) : Couldn't calculate mean: too few unique values!
+Error in doit(popn) : Couldn't calculate mean: too few unique values!
+Error in doit(popn) : Couldn't calculate mean: too few unique values!
+Error in doit(popn) : Couldn't calculate mean: too few unique values!
+Error in doit(popn) : Couldn't calculate mean: too few unique values!
+
+======================================================================
+Inspecting script file Control_flow.R...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+# Script: Control_flow.R
+# Description: This script demonstrates basic control flow structures in R such as conditional statements, for loops, and while loops. It also illustrates how to source another R script.
+# Arguments: None
+# Date: Oct 2024
+
+# Usage:
+# This script showcases examples of conditional statements, for loops, while loops, and sourcing another script.
+# 
+# To run the script:
+# Rscript Control_flow.R
+#
+# No arguments are required.
+
+# Dependencies:
+# Ensure the sourced file "Control_flow.R" exists in the working directory.
+
+# Set working directory (modify the path as needed)
+setwd("./Documents/CMEECourseWork/week3/code/")
+
+# Example of a simple conditional statement
+a <- TRUE
+if (a == TRUE) {
+  print ("a is TRUE")
+} else {
+  print ("a is FALSE")
+}
+
+# Conditional statement in a single line
+z <- runif(1)  # Generate a uniformly distributed random number
+if (z <= 0.5) {print ("Less than a half")}
+
+# More readable format for conditional statement
+z <- runif(1)
+if (z <= 0.5) {
+  print ("Less than a half")
+}
+
+# Loop over a range of numbers, squaring each, and printing the result
+for (i in 1:10) {
+  j <- i * i
+  print(paste(i, " squared is", j))
+}
+
+# Loop over a vector of strings
+for (species in c('Heliodoxa rubinoides', 
+                  'Boissonneaua jardini', 
+                  'Sula nebouxii')) {
+  print(paste('The species is', species))
+}
+
+# Loop over a pre-existing vector
+v1 <- c("a", "bc", "def")
+for (i in v1) {
+  print(i)
+}
+
+# Example of a while loop that runs until a condition is met
+i <- 0
+while (i < 10) {
+  i <- i + 1
+  print(i^2)
+}
+
+# Sourcing another script
+# source("Control_flow.R")
+
+
+
+**********************************************************************
+
+Testing Control_flow.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Error in setwd("./Documents/CMEECourseWork/week3/code/") : 
+  cannot change working directory
+Execution halted
+
+======================================================================
+Inspecting script file Vectorize.R...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+# Script: Vectorise.R
+# Description: This script compares the execution time of summing all elements in a matrix using a custom nested loop function vs. R's built-in vectorized sum function.
+# Arguments: None
+# Date: Oct 2024
+
+# Usage:
+# This script generates a 1000x1000 matrix with random values and measures the time required to sum all elements using both a custom function and the built-in `sum()` function.
+# 
+# To run the script:
+# Rscript Vectorise.R
+#
+# No arguments are required.
+
+# Initialize a variable
+a <- 1.0
+class(a)
+# R automatically assigns this as a float. In other languages, data types would need to be explicitly defined.
+# R compartmentalizes code for efficiency, especially with numeric data types.
+
+# Creating a 1000x1000 matrix with 1,000,000 random values between 0 and 1
+M <- matrix(runif(1000000), 1000, 1000)
+
+# Function to sum all elements of a matrix using nested loops
+SumAllElements <- function(M) {
+  Dimensions <- dim(M)  # Get the dimensions of the matrix (rows and columns)
+  Tot <- 0  # Initialize the total sum
+  for (i in 1:Dimensions[1]) {  # Loop over each row
+    for (j in 1:Dimensions[2]) {  # Loop over each column
+      Tot <- Tot + M[i, j]  # Add each element to the total sum
+    }
+  }
+  return(Tot)  # Return the total sum
+}
+
+# Measure the time taken to sum all elements using the custom function with loops
+print("Using loops, the time taken is:")
+print(system.time(SumAllElements(M)))  # system.time measures the execution time
+
+# Measure the time taken to sum all elements using R's built-in vectorized sum function
+print("Using the in-built vectorized function, the time taken is:")
+print(system.time(sum(M)))  # The built-in sum function is optimized and generally faster
+
+
+**********************************************************************
+
+Testing Vectorize.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+[1] "numeric"
+[1] "Using loops, the time taken is:"
+   user  system elapsed 
+  0.029   0.001   0.030 
+[1] "Using the in-built vectorized function, the time taken is:"
+   user  system elapsed 
+  0.001   0.000   0.001 
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.15139s
+
+======================================================================
+Inspecting script file Mybars.R...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+# Script: Mybars.R
+# Description: This script generates a bar plot with multiple lineranges from a data file and saves the plot as a PDF.
+# Dependencies: tidyverse
+# Arguments: None
+# Date: Oct 2024
+
+# Create the results directory if it does not exist
+if (!dir.exists("../results")) { 
+  dir.create("../results") # Create a directory named 'results' if it doesn’t already exist
+}
+
+pdf("../results/MyBars.pdf", # Open a blank PDF to save the plot in 'results'
+    20, 13) # Set page dimensions (width x height) in inches
+
+# Read the data from Results.txt, which is assumed to be a table with column headers
+a <- read.table("../data/Results.txt", header = TRUE)
+
+head(a) # Display the first few rows of the data frame to inspect its structure
+
+require(tidyverse) # Load the tidyverse package for data manipulation and plotting functions
+
+a$ymin <- rep(0, dim(a)[1]) # Append a new column 'ymin' filled with 0s, of the same length as the number of rows in 'a'
+
+# Initialize a ggplot object and create the first linerange (orange)
+p <- ggplot(a)
+p <- p + geom_linerange(data = a, aes(
+  x = x,              # x-axis uses the 'x' column from data frame 'a'
+  ymin = ymin,        # ymin (starting point of line) is set to zero
+  ymax = y1,          # ymax (ending point of line) is set to values in the 'y1' column
+  size = (0.5)        # Set the width of the linerange
+),
+colour = "#E69F00",   # Set color to orange
+alpha = 1/2,          # Set transparency of the line
+show.legend = FALSE)  # Remove legend display for this line
+
+# Create the second linerange (blue)
+p <- p + geom_linerange(data = a, aes(
+  x = x,
+  ymin = ymin,
+  ymax = y2,          # Set ending point of line to values in the 'y2' column
+  size = (0.5)
+),
+colour = "#56B4E9",   # Set color to blue
+alpha = 1/2, 
+show.legend = FALSE)
+
+# Create the third linerange (red)
+p <- p + geom_linerange(data = a, aes(
+  x = x,
+  ymin = ymin,
+  ymax = y3,          # Set ending point of line to values in the 'y3' column
+  size = (0.5)
+),
+colour = "#D55E00",   # Set color to red
+alpha = 1/2, 
+show.legend = FALSE)
+
+# Add text labels to each 'x' position
+p <- p + geom_text(data = a, aes(x = x, y = -500, label = Label)) # Position text labels below the x-axis (-500)
+
+# Set x and y axis labels, specify breaks, and apply a black-and-white theme
+p <- p + scale_x_continuous("My x axis",         # Label for x-axis
+                            breaks = seq(3, 5, by = 0.05)) + # Define tick marks on x-axis
+  scale_y_continuous("My y axis") +              # Label for y-axis
+  theme_bw() +                                   # Apply a black-and-white theme
+  theme(legend.position = "none")                # Remove any legend from the plot
+
+print(p) # Render the plot to the PDF
+
+graphics.off()  # Close the PDF device to save the plot in MyBars.pdf
+
+
+**********************************************************************
+
+Testing Mybars.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+         x   y1   y2 y3 Label
+1 3.515424 4320 4320  0  <NA>
+2 3.533984 2160 2160  0  <NA>
+3 3.557647 4320 4320  0  <NA>
+4 3.569953 4320 4320  0  <NA>
+5 3.578984 8640 8640  0  <NA>
+6 3.585665 2160 2160  0  <NA>
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Loading required package: tidyverse
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Warning message:
+Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead. 
+Warning message:
+Removed 91 rows containing missing values or values outside the scale range
+(`geom_text()`). 
+
+======================================================================
+Inspecting script file plotLin.R...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+# Script: MyLinReg.R
+# Description: This script generates a scatter plot with a linear regression line from a simulated dataset. The plot is saved as a PDF.
+# Dependencies: tidyverse
+# Arguments: None
+# Date: October 2024
+
+# Create the results directory if it does not exist
+if (!dir.exists("../results")) { 
+  dir.create("../results") # Create a directory named 'results' if it doesn’t already exist
+}
+
+# Load the tidyverse package for data manipulation and plotting functions
+require(tidyverse)
+
+# Open a blank PDF in the 'results' directory to save the plot
+pdf("../results/MyLinReg.pdf", 
+    20, 13) # Set page dimensions (width x height) in inches
+
+# Generate a sequence of x values from 0 to 100 with increments of 0.1
+x <- seq(0, 100, by = 0.1)
+
+# Generate y values based on a linear relationship with x, adding random noise
+y <- -4. + 0.25 * x + rnorm(length(x), mean = 0., sd = 2.5)
+
+# Store x and y values in a data frame
+my_data <- data.frame(x = x, y = y)
+
+# Perform a linear regression of y on x and summarize the model
+my_lm <- summary(lm(y ~ x, data = my_data))
+
+# Plot the data with ggplot2, using the absolute residuals as color intensity
+p <- ggplot(my_data, aes(x = x, y = y, colour = abs(my_lm$residual))) +
+  geom_point() + # Scatter plot of data points
+  scale_colour_gradient(low = "black", high = "red") + # Gradient color for residuals
+  theme(legend.position = "none") + # Remove legend
+  scale_x_continuous(expression(alpha^2 * pi / beta * sqrt(Theta))) # Custom x-axis label with expression
+
+# Add the regression line to the plot
+p <- p + geom_abline(
+  intercept = my_lm$coefficients[1][1], # Intercept from the regression model
+  slope = my_lm$coefficients[2][1],     # Slope from the regression model
+  colour = "red")                       # Set line color to red
+
+# Add a mathematical expression as a label to the plot at specified coordinates
+p <- p + geom_text(aes(x = 60, y = 0, label = "sqrt(alpha) * 2* pi"), 
+                   parse = TRUE, size = 6, colour = "blue") # Display the expression in blue
+
+# Print the plot to the PDF
+print(p)
+
+# Close the PDF device to save the plot in 'MyLinReg.pdf'
+graphics.off()
+
+**********************************************************************
+
+Testing plotLin.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Loading required package: tidyverse
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Warning message:
+In geom_text(aes(x = 60, y = 0, label = "sqrt(alpha) * 2* pi"),  :
+  All aesthetics have length 1, but the data has 1001 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.
+
+======================================================================
+Inspecting script file next.R...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+# Script: next.R
+# Description: This script demonstrates the use of the 'next' statement within a for loop to skip iterations when a condition is met.
+# Arguments: None
+# Date: Oct 2024
+
+# Usage:
+# This script showcases how the 'next' statement can be used to skip over iterations in a for loop in R.
+# 
+# To run the script:
+# Rscript next.R
+#
+# No arguments are required.
+
+# Example of a for loop with 'next' to skip even numbers
+for (i in 1:10) {
+  if ((i %% 2) == 0)  # Check if the number is even
+    next  # Skip to the next iteration if the number is even
+  print(i)  # Print the odd numbers
+}
+
+# The 'next' statement skips over an iteration if a condition is met (in this case, if the number is even)
+
+
+**********************************************************************
+
+Testing next.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+[1] 1
+[1] 3
+[1] 5
+[1] 7
+[1] 9
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.10004s
+
+======================================================================
+Inspecting script file browse.R...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+# Script: browse.R
+# Description: This script simulates exponential growth using a custom function and includes a debugging point with the `browser()` function.
+# Arguments: None
+# Date: Oct 2024
+
+# Usage:
+# This script defines an exponential growth model with a debugging point inside a loop.
+# Running this script will enter browser mode during the first iteration, allowing you to inspect variables.
+#
+# To run the script:
+# Rscript browse.R
+#
+# No arguments are required.
+
+# Define an exponential growth function
+Exponential <- function(N0 = 1, r = 1, generations = 10) {
+  # Runs a simulation of exponential growth
+  # Returns a vector of length `generations`
+  
+  N <- rep(NA, generations)  # Creates a vector `N` of NA values for `generations` elements
+  
+  N[1] <- N0  # Initialize the first generation with `N0`
+  for (t in 2:generations) {  # Loop through each generation starting from the second
+    N[t] <- N[t-1] * exp(r)  # Calculate population size with exponential growth formula
+    browser()  # Enter debugging mode, allowing inspection of variables at this point
+  }
+  return(N)  # Return the vector of population sizes across generations
+}
+
+# The script will run until the first iteration of the loop, then enter the browser mode for debugging
+
+# Plot the results of the exponential growth model
+plot(Exponential(), type="l", main="Exponential growth")
+
+**********************************************************************
+
+Testing browse.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Called from: Exponential()
+debug: N[t] <- N[t - 1] * exp(r)
+debug: browser()
+debug: N[t] <- N[t - 1] * exp(r)
+debug: browser()
+debug: N[t] <- N[t - 1] * exp(r)
+debug: browser()
+debug: N[t] <- N[t - 1] * exp(r)
+debug: browser()
+debug: N[t] <- N[t - 1] * exp(r)
+debug: browser()
+debug: N[t] <- N[t - 1] * exp(r)
+debug: browser()
+debug: N[t] <- N[t - 1] * exp(r)
+debug: browser()
+debug: N[t] <- N[t - 1] * exp(r)
+debug: browser()
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.12026s
+
+======================================================================
+Inspecting script file preallocate.R...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+# Script: preallocate.R
+# Description: This script compares the time efficiency of a non-preallocated vector approach with a preallocated vector approach in R, demonstrating the impact of preallocation on performance.
+# Arguments: None
+# Date: Oct 2024
+
+# Usage:
+# This script defines two functions:
+# 1. `NoPreallocFun`: A function that grows a vector within a loop without preallocation.
+# 2. `PreallocFun`: A function that grows a vector with preallocation.
+#
+# To run the script:
+# Rscript preallocate.R
+#
+# No arguments are required for running this script.
+
+# Inbuilt sum function is about 100 times faster as it is built in a lower-level language.
+
+# Below is a loop function that repeatedly resizes a vector, making it slow.
+
+NoPreallocFun <- function(x) {
+  a <- vector()  # Initialize an empty vector
+  for (i in 1:x) {
+    a <- c(a, i)  # Concatenate elements to `a` (resizing each iteration)
+    print(a)  # Print current state of the vector
+    print(object.size(a))  # Print the size of the object in memory
+  }
+}
+
+# Measure time taken by the non-preallocated function
+system.time(NoPreallocFun(1000))
+
+# Preallocation of vectors speeds this up by avoiding repeated resizing.
+PreallocFun <- function(x) {
+  a <- rep(NA, x)  # Pre-allocate a vector of length `x`
+  for (i in 1:x) {
+    a[i] <- i  # Assign each element to the preallocated vector
+    print(a)  # Print current state of the vector
+    print(object.size(a))  # Print the size of the object in memory
+  }
+}
+
+# Measure time taken by the preallocated function, which is much faster
+system.time(PreallocFun(1000))
+
+
+
+
+
+
+**********************************************************************
+
+Testing preallocate.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+[1] 1
+56 bytes
+[1] 1 2
+56 bytes
+[1] 1 2 3
+64 bytes
+[1] 1 2 3 4
+64 bytes
+[1] 1 2 3 4 5
+80 bytes
+[1] 1 2 3 4 5 6
+80 bytes
+[1] 1 2 3 4 5 6 7
+80 bytes
+[1] 1 2 3 4 5 6 7 8
+80 bytes
+[1] 1 2 3 4 5 6 7 8 9
+96 bytes
+ [1]  1  2  3  4  5  6  7  8  9 10
+96 bytes
+ [1]  1  2  3  4  5  6  7  8  9 10 11
+96 bytes
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12
+96 bytes
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12 13
+112 bytes
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14
+112 bytes
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12 1
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.81383s
+
+======================================================================
+======================================================================
+Finished running scripts
+
+Ran into 6 errors
+
+======================================================================
+======================================================================
+
+FINISHED LOGGING
+

@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Quick Usage Instructions:
+# This script contains Unix shell commands that can be used on .fasta files located in the directory (data/fasta).
+# The commands perform various tasks such as counting lines, calculating sequence length, finding specific sequence patterns, 
+# and computing the AT/GC ratio of a genome sequence.
+#
+# Ensure you have your .fasta files in the 'data/fasta/' directory before running the commands.
+
+# 1. Counts the number of lines in each .fasta file in the directory
+wc -l data/fasta/*.fasta
+
+# 2. Prints everything starting from the second line of the E.coli genome file (skips the header)
+tail -n +2 data/fasta/E.coli.fasta
+
+# 3. Counts the total sequence length of the E.coli genome by:
+#    - Skipping the first line (header)
+#    - Removing newline characters to get a continuous sequence
+#    - Counting the characters in the resulting sequence
+tail -n +2 data/fasta/E.coli.fasta | tr -d '\n' | wc -m 
+
+# 4. Counts how many times the sequence "ATGC" appears in the E.coli genome by:
+#    - Skipping the first line
+#    - Removing newlines to treat the genome as a single continuous string
+#    - Using grep to match "ATGC" and counting occurrences
+tail -n +2 data/fasta/E.coli.fasta | tr -d '\n' | grep -o "ATGC" | wc -l
+
+# 5. Computes the AT/GC ratio in the E.coli genome:
+#    - Counts occurrences of A and T
+#    - Counts occurrences of G and C
+#    - Calculates the ratio of (A+T) to (G+C)
+A=$(tail -n +2 data/fasta/E.coli.fasta | tr -d '\n' | grep -o -E "A|T" | wc -l)   # Count A's and T's
+G=$(tail -n +2 data/fasta/E.coli.fasta | tr -d '\n' | grep -o -E "G|C" | wc -l)   # Count G's and C's
+ratio=$(echo "scale=6; $A / $G" | bc)  # Calculate ratio with six decimal precision
+echo "The AT/GC ratio is: $ratio"
+
+# Additional explanation:
+# - `tail -n +2`: Skips the first line (header) and outputs the rest of the file.
+# - `tr -d '\n'`: Removes newline characters to create a single continuous sequence.
+# - `wc -m`: Counts the number of characters in the sequence.
+# - `grep -o "ATGC"`: Finds and prints each occurrence of the sequence "ATGC".
+# - `bc`: Command-line calculator used for floating-point arithmetic (for calculating the AT/GC ratio).
+# - `scale=6`: Sets the precision to 6 decimal places for the ratio calculation.
+
+
+
+

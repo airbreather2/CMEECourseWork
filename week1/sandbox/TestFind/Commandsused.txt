@@ -1,0 +1,26 @@
+The following commands were used to create the contents of this folder: for the intention of practicing search commands in Linux Shell
+
+mkdir TestFind
+cd TestFind
+mkdir -p Dir1/Dir11/Dir111 
+
+#what does -p do? mkdir -p ensures that parent directories are created Dir111 could be created because the previous 2 were also simultanously created
+
+mkdir Dir2
+mkdir Dir3
+
+touch Dir1/File1.txt #file.t 
+touch Dir1/File1.csv
+touch Dir1/File1.tex
+#Three different file types were created in Dir1
+
+touch Dir2/File2.txt
+touch Dir2/file2.csv
+touch Dir2/File2.tex
+#as above but now in Dir2
+
+touch Dir1/Dir11/Dir111/File111.txt
+File111.txt was created in the Dir111 directory
+
+touch Dir3/File3.txt
+#only file3.txt was created in the Dir 3 directory
