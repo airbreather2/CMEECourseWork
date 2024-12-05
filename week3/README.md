@@ -2,8 +2,8 @@
 
 Week 3 contains content from the following chapters: **Biological computing in R and Data management and visualisation in R**
 
-additionally python scripts from the groupwork practicals in **biological computing in python 1** can be found at: 
-[05_Electric_Emus GitHub Repository](https://github.com/airbreather2/05_Electric_Emus) final scripts are included in this weeks submission. 
+additionally R Scripts from the groupwork practicals in ** R ** can be found at: 
+[05_Electric_Emus GitHub Repository](https://github.com/airbreather2/05_Electric_Emus) final scripts are also included in this weeks submission. 
 
 
 #### languages used: 
@@ -13,7 +13,7 @@ additionally python scripts from the groupwork practicals in **biological comput
 
 ## Scripts in Code
 
-### basic_io.R
+## basic_io.R
 
 - **Description**:  
   A simple script to illustrate R input-output operations. The script demonstrates how to:
@@ -37,7 +37,7 @@ additionally python scripts from the groupwork practicals in **biological comput
      ```bash
      Rscript basic_io.R
      ```
-### control_flow.R
+## control_flow.R
 
 - **Description**:  
   This script demonstrates basic control flow structures in R such as conditional statements, for loops, and while loops. It also illustrates how to source another R script.
@@ -55,7 +55,7 @@ additionally python scripts from the groupwork practicals in **biological comput
      ```bash
      Rscript control_flow.R
      ```
-### break.R
+## break.R
 
 - **Description**:  
   This script demonstrates a simple `while` loop in R that runs until a break condition is met. It prints the value of `i` on each iteration and exits the loop when `i` equals 10.
@@ -75,7 +75,7 @@ additionally python scripts from the groupwork practicals in **biological comput
     - The script uses a `while` loop that will theoretically run infinitely (`i < Inf`), but it breaks out of the loop when `i == 10`.
     - It prints the value of `i` for each iteration before updating it.
 
-### next.R
+## next.R
 
 - **Description**:  
   This script demonstrates the use of the `next` statement within a `for` loop in R. The `next` statement allows you to skip specific iterations in the loop based on a condition. In this script, the loop skips over even numbers.
@@ -94,7 +94,7 @@ additionally python scripts from the groupwork practicals in **biological comput
     - The `next` statement is used within a `for` loop to skip iterations when the condition `(i %% 2 == 0)` is met (i.e., when `i` is an even number).
     - The script will only print the odd numbers between 1 and 10.
 
-### boilerplate.R
+## boilerplate.R
 
 - **Description**:  
   This script demonstrates the creation and testing of a simple R function (`MyFunction`) that accepts two arguments, prints their types, and returns them as a vector.
@@ -120,7 +120,7 @@ additionally python scripts from the groupwork practicals in **biological comput
   - The script includes test cases for both numeric and character input.
   - You can modify or extend `MyFunction` to accept other types of arguments or perform additional operations.
 
-### R_conditionals.R
+## R_conditionals.R
 
 - **Description**:  
   This script contains three functions to check if a number is even, a power of 2, or a prime number.
@@ -151,36 +151,68 @@ additionally python scripts from the groupwork practicals in **biological comput
 
 ### treeheights.R
 
-- **Description**:  
-  This script defines a function, `TreeHeight`, to calculate the height of a tree based on the distance from the tree's base and the angle of elevation to the top of the tree.
+### **Description**  
+This script defines the `TreeHeight` function, which calculates the height of a tree based on the distance from the tree's base and the angle of elevation to the top of the tree. Additionally, the script reads a dataset of trees, calculates their heights, and creates an output file containing the first two rows of the dataset with the calculated tree heights.
 
-  - **Function**:
-    - `TreeHeight(degrees, distance)`: 
-      - **Arguments**:
-        - `degrees`: The angle of elevation to the top of the tree, in degrees.
-        - `distance`: The horizontal distance from the base of the tree, in meters (or other consistent units).
-      - **Output**: Prints and returns the calculated height of the tree in the same units as `distance`.
+---
 
-  - **Arguments**:  
-    No arguments are required when running the script itself. The function `TreeHeight` takes two inputs: `degrees` and `distance`.
+### **Function**  
 
-- **Dependencies**:  
-  No external libraries are required; the script uses standard R functions (`pi`, `tan`).
+#### `TreeHeight(degrees, distance)`  
+- **Arguments**:  
+  - `degrees`: The angle of elevation to the top of the tree, in degrees.  
+  - `distance`: The horizontal distance from the base of the tree, in meters (or other consistent units).  
+- **Output**:  
+  - Prints the calculated height of the tree.  
+  - Returns the height of the tree in the same units as `distance`.  
 
-- **Usage**:  
-  1. To run the script, use the following command in a terminal:
-     ```bash
-     Rscript treeheights.R
-     ```
-  - The script will:
-    - Define the `TreeHeight` function.
-    - Test the function with an example angle of 37 degrees and a distance of 40 meters.
+---
 
-- **Additional Notes**:  
-  - You can modify the test values to check the height calculation for other trees by changing the `degrees` and `distance` arguments.
-  - The function can also be used interactively in an R session by sourcing the script.
+### **Script Details**  
 
-### Vectorise.R
+- **Input File**:  
+  The script reads a file named `trees.csv` located in the `../data/` directory. The dataset should contain the following columns:  
+  - `Species`: The species name of the tree.  
+  - `Distance.m`: The horizontal distance from the tree's base, in meters.  
+  - `Angle.degrees`: The angle of elevation to the top of the tree, in degrees.  
+
+- **Output File**:  
+  The script writes a file named `TreeHts.csv` in the `../results/` directory. This file contains the first two rows of the original dataset with an additional column:  
+  - `Tree.Height.m`: The calculated height of the tree, in meters.  
+
+---
+
+### **Dependencies**  
+No external libraries are required; the script uses base R functions (`pi`, `tan`).
+
+---
+
+### **Usage**  
+
+1. Ensure the `trees.csv` file is available in the `../data/` directory with the required columns (`Species`, `Distance.m`, `Angle.degrees`).  
+2. Run the script using the following command in a terminal:  
+   ```bash
+   Rscript treeheights.R
+``` 
+### **The script will:**
+
+- Define the `TreeHeight` function.
+- Read the dataset `trees.csv`.
+- Calculate the tree heights and append them as a new column.
+- Extract the first two rows of the updated dataset.
+- Save the extracted rows to `TreeHts.csv`.
+
+---
+
+### **Additional Notes**
+
+- The `TreeHeight` function is reusable and can be called interactively within an R session by sourcing the script.
+- Modify the dataset `trees.csv` to include additional trees for processing.
+- Ensure the output directory (`../results/`) exists to avoid errors when saving the output file.
+
+---
+
+## Vectorise.R
 
 - **Description**:  
   This script compares the execution time of summing all elements in a matrix using two methods:
@@ -205,7 +237,7 @@ additionally python scripts from the groupwork practicals in **biological comput
     - Generate a 1000x1000 matrix of random values.
     - Measure and display the time taken to sum all elements using both the custom function and the built-in `sum()` function.
 
-### preallocate.R
+## preallocate.R
 
 - **Description**:  
   This script compares the time efficiency of two methods for growing a vector in R:
@@ -237,7 +269,7 @@ additionally python scripts from the groupwork practicals in **biological comput
   - The `system.time` function is used to measure the time required by each method, highlighting the efficiency of preallocation.
   - This example is particularly useful for understanding the impact of preallocation in R, especially when working with large data structures.
 
-### apply1.R
+## apply1.R
 
 - **Description**:  
   This script demonstrates the use of the `apply` function in R to calculate row and column statistics in a matrix. It:
@@ -269,7 +301,7 @@ additionally python scripts from the groupwork practicals in **biological comput
   - This script highlights the efficiency of the `apply` function for matrix operations in R.
   - The `apply` function allows for concise and efficient calculations across rows and columns.
 
-### apply2.R
+## apply2.R
 
 - **Description**:  
   This script demonstrates using the `apply` function in R to apply a custom function to each row of a matrix. It creates a 10x10 matrix of random values and applies a function that multiplies each row by 100 if the row sum is positive.
@@ -293,7 +325,7 @@ additionally python scripts from the groupwork practicals in **biological comput
     - Define and apply `SomeOperation` to each row of a randomly generated matrix.
     - Print the result for each row, modified based on the function’s criteria.
 
-### sample.R
+## sample.R
 
 - **Description**:  
   This script demonstrates multiple methods for taking repeated samples from a population in R, including the use of loops with and without preallocation, as well as vectorized functions (`sapply` and `lapply`). It compares the time taken by each method to highlight the efficiency benefits of preallocation and vectorization.
@@ -325,7 +357,7 @@ additionally python scripts from the groupwork practicals in **biological comput
   - This script provides a performance comparison of different sampling approaches, illustrating the speed of preallocation and vectorization in R.
   - Setting the seed ensures reproducibility of the random sampling.
 
-### browse.R
+## browse.R
 
 - **Description**:  
   This script simulates exponential growth with a custom function and includes a debugging point using the `browser()` function, which pauses execution and opens an interactive debugging session during the first iteration of the loop.
@@ -359,7 +391,7 @@ additionally python scripts from the groupwork practicals in **biological comput
   - The `browser()` function is useful for interactive debugging, allowing you to view and inspect variables during the loop.
   - Once in browser mode, you can type commands to inspect variables (`N`, `t`, etc.) and step through each iteration.
 
-### try.R
+## try.R
 
 - **Description**:  
   This script demonstrates error handling in R when calculating the mean of a sample from a population. It includes a custom function, `doit`, which samples from a population and calculates the mean if the sample has enough unique values. If not, it triggers an error. The script uses `try` to handle these errors, allowing continued execution even when some samples do not meet the unique value threshold.
@@ -388,7 +420,7 @@ additionally python scripts from the groupwork practicals in **biological comput
   - The `try` function prevents the script from stopping due to errors, storing failed attempts in the results for later inspection.
   - Setting a seed ensures that random sampling is reproducible.
 
-### DataWrang.R
+## DataWrang.R
 
 - **Description**:  
   This script loads and wrangles the Pound Hill dataset, which initially lacks proper headers. The script handles missing values, reshapes the data from wide to long format, and performs some exploratory analysis.
@@ -422,47 +454,7 @@ additionally python scripts from the groupwork practicals in **biological comput
   - Ensure `PoundHillData.csv` and `PoundHillMetaData.csv` are available in the specified data directory.
   - This script demonstrates a sequence of data wrangling and exploration tasks that can be extended for further analysis.
 
-### SQLinR.R
-
-- **Description**:  
-  This script demonstrates basic SQLite database operations in R. It creates an SQLite database, defines a table, inserts data, performs SQL queries, and imports additional data from a CSV file. The script also includes cleanup steps to close the database connection and remove data frames from the environment.
-
-  - **Functions and Workflow**:
-    - **Database Connection**: Opens a connection to an SQLite database (creates `Test.sqlite` if it does not exist).
-    - **Create Table**: Defines a `Consumer` table to store species data.
-    - **Insert Data**: Adds rows to the `Consumer` table using SQL `INSERT` statements.
-    - **Query Data**: Retrieves records from `Consumer` using `SELECT` statements, including a conditional query.
-    - **Import Data from CSV**: Imports data from `Resource.csv` and writes it to the database as a new table.
-    - **Database Inspection**: Lists tables, displays columns, and reads data from the database.
-    - **Cleanup**: Closes the database connection and removes data frames from the environment.
-
-  - **Arguments**:  
-    No command-line arguments are required to run this script.
-
-- **Dependencies**:  
-  - **sqldf**: To install and manage SQLite databases in R.
-  - **tidyverse**: If required for additional data manipulation (optional).
-
-- **Usage**:  
-  1. Ensure `sqldf` is installed:
-     ```r
-     install.packages("sqldf")
-     ```
-  2. Run the script with:
-     ```bash
-     Rscript SQLinR.R
-     ```
-  - The script will:
-    - Create and populate an SQLite database.
-    - Perform SQL queries.
-    - Import additional data from a CSV file (`Resource.csv`).
-
-- **Additional Notes**:  
-  - Ensure `PoundHillData.csv` and `Resource.csv` are available in the specified data directory.
-  - This script is a useful template for working with SQLite databases in R.
-  - Closing the database connection at the end of the script prevents potential data issues or memory leaks.
-
-### Girko.R
+## Girko.R
 
 - **Description**:  
   This script generates a visualization of eigenvalues from a random matrix overlaid on an ellipse representing a circular distribution. The plot is saved to a PDF file in the `results` directory.
@@ -481,7 +473,7 @@ additionally python scripts from the groupwork practicals in **biological comput
   Requires the following R package:
   - `tidyverse`: For data manipulation and plotting functions. Install it with:
     ```r
-    install.packages("tidyverse")
+    install.packages("tidyverse") 
     ```
 
 - **Usage**:  
@@ -493,7 +485,7 @@ additionally python scripts from the groupwork practicals in **biological comput
     - Generate an ellipse and plot eigenvalues overlaid on it.
     - Save the plot as `Girko.pdf` in the `results` directory.
     
-### Mybars.R
+## Mybars.R
 
 
 ## Description
@@ -535,7 +527,7 @@ If the `results/` directory does not exist, the script will create it.
   - Ensure that `tidyverse` is installed before running the script.
   - The PDF file is saved in `../results/Mybars.pdf` with page dimensions of 11.7 x 8.3 inches.
 
-### plotLin.R
+## plotLin.R
 
 ## Description
 
@@ -572,7 +564,7 @@ The plot is saved as plotLin.pdf in the results directory, with:
 - A mathematical label displayed as an annotation within the plot.
 - If the results/ directory does not exist, the script will create it automatically.
 
-### PP_Regress.R
+## PP_Regress.R
 
 - **Description**:  
   This script generates multiple plots containing linear regressions of predator and prey masses grouped by predator lifestage and feeding type from the EcolArchives-E089-51-D1 dataset. It also calculates regression coefficients for each group and saves them to a CSV file.
@@ -603,7 +595,7 @@ The plot is saved as plotLin.pdf in the results directory, with:
     - Generate a PDF file with regression plots (`test_Visualising_regression_analysis.pdf`).
     - Save a CSV file containing regression coefficients (`PP_Regress_Results.csv`).
 
-### PP_Regress_loc.R
+## PP_Regress_loc.R
 
 - **Description**:  
   This script generates multiple plots containing linear regressions of predator and prey masses grouped by predator lifestage and feeding type by location from the EcolArchives-E089-51-D1 dataset. It also calculates regression coefficients for each group and saves them to a CSV file.
@@ -634,7 +626,7 @@ The plot is saved as plotLin.pdf in the results directory, with:
     - Generate a PDF file with regression plots (`test_Visualising_regression_analysis.pdf`).
     - Save a CSV file containing regression coefficients (`PP_Regress_bylocation_Results.csv`).
   
-### Florida.R
+## Florida.R
 
 - **Description**:  
   This script performs a permutation analysis on a temperature dataset from Key West, Florida. It calculates an observed correlation coefficient between year and temperature, generates a distribution of 100,000 random correlation coefficients by randomizing temperature values, and computes the fraction of random coefficients greater than the observed value to approximate a p-value. Additionally, it creates a scatterplot of temperature versus year with a regression line.
@@ -678,7 +670,7 @@ The plot is saved as plotLin.pdf in the results directory, with:
   - The p-value provides a measure of whether the observed correlation is statistically significant compared to a null hypothesis of no temporal correlation.
 
 
-### Tautocorr.R
+## Tautocorr.R
 
 - **Description**:  
   This script analyzes temporal autocorrelation in annual mean temperatures for Key West. It calculates the observed correlation coefficient for consecutive years, conducts a permutation test to assess statistical significance, and generates a histogram of the permuted correlation coefficients.
@@ -717,7 +709,7 @@ The plot is saved as plotLin.pdf in the results directory, with:
   - Ensure the dataset `KeyWestAnnualMeanTemperature.RData` is stored in the `../data/` directory before running the script.
   - The script automatically creates the `../results` directory if it does not already exist.
 
-#### compileLaTeX.sh
+## compileLaTeX.sh
 
 ### Author
 **Sebastian Dohne**  

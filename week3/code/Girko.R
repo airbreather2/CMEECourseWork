@@ -21,6 +21,11 @@
 # 2. Generate an ellipse and plot eigenvalues overlaid on it.
 # 3. Save the plot as `Girko.pdf` in the `results` directory.
 
+#######mODULES #########
+require(tidyverse) 
+
+########################
+
 # Create the results directory if it does not exist
 if (!dir.exists("../results")) {
   dir.create("../results")
@@ -28,8 +33,6 @@ if (!dir.exists("../results")) {
 
 pdf("../results/Girko.pdf", # Open blank pdf page using a relative path
     11.7, 8.3) # These numbers are page dimensions in inches
-
-require(tidyverse)
 
 build_ellipse <- function(hradius, vradius) { # function that returns an ellipse
   npoints = 250 # Define the number of points for smoothness

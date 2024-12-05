@@ -16,6 +16,14 @@
 #
 # No arguments are required for running this script.
 
+
+
+# Function to check if a number is even
+# Arguments:
+#   n: A numeric value to check for evenness.
+# Returns:
+#   A string indicating whether the number is even or odd.
+
 # Function to check if a number is even
 is.even <- function(n = 2) {
   if (n %% 2 == 0) {
@@ -26,9 +34,13 @@ is.even <- function(n = 2) {
 }
 
 # Test the function
-is.even(6)
+print(is.even(6))
 
 # Function to check if a number is a power of 2
+# Arguments:
+#   n: A numeric value to check if it is a power of 2.
+# Returns:
+#   A string indicating whether the number is a power of 2.
 is.power2 <- function(n = 2) {
   if (log2(n) %% 1 == 0) {
     return(paste(n, 'is a power of 2!'))
@@ -38,9 +50,13 @@ is.power2 <- function(n = 2) {
 }
 
 # Test the function
-is.power2(8)
+print(is.power2(8))
 
 # Function to check if a number is prime
+# Arguments:
+#   n: A numeric value to check for primality.
+# Returns:
+#   A string indicating whether the number is prime or composite, or a specific case for 0 and 1.
 is.prime <- function(n) {
   if (n == 0) {
     return(paste(n, 'is zero!'))  # Statement to signify 0
@@ -58,7 +74,7 @@ is.prime <- function(n) {
 }
 
 # Test the function
-is.prime(14)
+print(is.prime(14))
 
 
 

@@ -6,7 +6,7 @@
 # Date: Oct 2024
 
 # Usage:
-# This script showcases how the 'next' statement can be used to skip over iterations in a for loop in R.
+# This script showcases how the 'next' statement can be used to skip over iterations in a for loop in R. useful if you require odd numbers.
 # 
 # To run the script:
 # Rscript next.R

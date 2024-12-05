@@ -20,23 +20,23 @@
 
 1. **break.R**: The code demonstrates a break condition effectively. Adding comments for each condition, like `i == 10`, would improve clarity.   #DONE
 2. **sample.R**: Illustrates sampling techniques efficiently. Adding a brief summary of performance differences between preallocation and non-preallocation methods would make the example more informative. #DONE
-3. **Vectorize1.R**: Demonstrates the speed advantage of vectorized functions. Additional comments clarifying the performance benefits would be helpful.
-4. **R_conditionals.R**: This file has functions for checking numeric properties. Edge case handling (e.g., `NA` values) and additional comments for each function would enhance robustness.
-5. **apply1.R**: Uses `apply()` effectively for row and column calculations. Descriptions of each calculation step would make the code easier to understand.
-6. **basic_io.R**: Manages file I/O well but encountered an issue due to missing `trees.csv`. Optimizing repeated write operations could improve efficiency.
-7. **SQLinR.R**: Demonstrates SQLite operations in R but ran into issues with missing data. Documenting dependencies in the README or confirming file paths would prevent this.
-8. **Girko.R**: Generates an eigenvalue plot. Ensuring the required packages (`ggplot2`) are installed beforehand would help avoid runtime errors.
-9. **boilerplate.R**: Provides a function template with a clear structure. Adding comments for function arguments and return values would improve readability.
-10. **apply2.R**: Demonstrates conditional applications effectively. Adding comments for each conditional operation would improve readability.
-11. **DataWrang.R**: Contains detailed data wrangling steps. Adding comments explaining each transformation step, especially when reshaping data, would clarify the process.
-12. **control_flow.R**: Demonstrates control structures like `for`, `if`, and `while`. Summarizing each structure’s purpose in a header would enhance understanding.
-13. **MyBars.R**: This script encountered data-loading issues. Including sample data or specifying input requirements in the README would improve usability.
-14. **TreeHeight.R**: Calculates tree height based on trigonometric formulas but raised errors due to missing data. Adding example data or sample calculations would clarify usage.
-15. **plotLin.R**: Plots linear regression and encountered a directory issue. Adding `dir.create()` in the script or ensuring directory availability would help avoid errors.
-16. **next.R**: Uses `next` in a loop to skip specific iterations. Comments explaining the purpose of `next` would improve clarity.
-17. **browse.R**: Contains debugging points using `browser()`. Commenting out `browser()` for production or isolating it in a dedicated debugging directory (`sandbox`) would streamline the code.
-18. **preallocate.R**: Demonstrates the benefits of preallocation effectively. Comments describing timing differences would make the performance advantage clearer.
-19. **try.R**: Demonstrates error handling with `try()` effectively but could benefit from using `tryCatch()` for more structured control.
+3. **Vectorize1.R**: Demonstrates the speed advantage of vectorized functions. Additional comments clarifying the performance benefits would be helpful. #DONE
+4. **R_conditionals.R**: This file has functions for checking numeric properties. Edge case handling (e.g., `NA` values) and additional comments for each function would enhance robustness. #DONE
+5. **apply1.R**: Uses `apply()` effectively for row and column calculations. Descriptions of each calculation step would make the code easier to understand. #DONE
+6. **basic_io.R**: Manages file I/O well but encountered an issue due to missing `trees.csv`. Optimizing repeated write operations could improve efficiency. #DONE
+7. **SQLinR.R**: Demonstrates SQLite operations in R but ran into issues with missing data. Documenting dependencies in the README or confirming file paths would prevent this. #IGNORE
+8. **Girko.R**: Generates an eigenvalue plot. Ensuring the required packages (`ggplot2`) are installed beforehand would help avoid runtime errors. #Done 
+9. **boilerplate.R**: Provides a function template with a clear structure. Adding comments for function arguments and return values would improve readability. #DONE 
+10. **apply2.R**: Demonstrates conditional applications effectively. Adding comments for each conditional operation would improve readability. #DONE
+11. **DataWrang.R**: Contains detailed data wrangling steps. Adding comments explaining each transformation step, especially when reshaping data, would clarify the process. #DONE
+12. **control_flow.R**: Demonstrates control structures like `for`, `if`, and `while`. Summarizing each structure’s purpose in a header would enhance understanding. #DONE
+13. **MyBars.R**: This script encountered data-loading issues. Including sample data or specifying input requirements in the README would improve usability. #DONE
+14. **TreeHeight.R**: Calculates tree height based on trigonometric formulas but raised errors due to missing data. Adding example data or sample calculations would clarify usage. #Done
+15. **plotLin.R**: Plots linear regression and encountered a directory issue. Adding `dir.create()` in the script or ensuring directory availability would help avoid errors. #DONE
+16. **next.R**: Uses `next` in a loop to skip specific iterations. Comments explaining the purpose of `next` would improve clarity. #DONE
+17. **browse.R**: Contains debugging points using `browser()`. Commenting out `browser()` for production or isolating it in a dedicated debugging directory (`sandbox`) would streamline the code. #DONE
+18. **preallocate.R**: Demonstrates the benefits of preallocation effectively. Comments describing timing differences would make the performance advantage clearer. #DONE
+19. **try.R**: Demonstrates error handling with `try()` effectively but could benefit from using `tryCatch()` for more structured control. #DONE
 
 ### General Code Suggestions
 

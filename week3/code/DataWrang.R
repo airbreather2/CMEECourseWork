@@ -117,8 +117,8 @@ slice(MyWrangledData, 10:15) #look at a particular range of data rows
 
 #pipe operator allows you to create a compact sequence of manipulations with your dataset
 MyWrangledData %>%
-  group_by(Species) %>%
-  summarise(avg = mean(Count))
+  group_by(Species) %>%  # Group the wrangled dataset by the 'Species' column
+  summarise(avg = mean(Count))  # Calculate the mean of the 'Count' column for each species and summarize it as 'avg'
 
 #is the same as 
 aggregate(MyWrangledData$Count, list(MyWrangledData$Species), FUN=mean) 

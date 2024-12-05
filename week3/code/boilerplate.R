@@ -14,6 +14,14 @@
 # No arguments are required.
 
 # Define a function that prints argument types and returns them
+# MyFunction: A function to demonstrate handling and printing argument types in R
+# Arguments:
+#   Arg1: The first argument. Can be of any data type (e.g., numeric, character, etc.).
+#   Arg2: The second argument. Can be of any data type (e.g., numeric, character, etc.).
+# Returns:
+#   A vector containing the two arguments passed to the function.
+
+
 MyFunction <- function(Arg1, Arg2) {
   
   # Statements involving Arg1, Arg2:
