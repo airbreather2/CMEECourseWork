@@ -1,3 +1,6 @@
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+
 rm(list = ls())
 graphics.off()
 source("Demographic.R")

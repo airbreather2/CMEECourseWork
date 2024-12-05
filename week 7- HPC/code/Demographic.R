@@ -1,3 +1,7 @@
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+
+
 # CMEE 2024 HPC exercises R code provided 
 # Stochastic and deterministic demographic model
 

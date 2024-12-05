@@ -1,3 +1,6 @@
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+
 library(terra)     # core raster GIS package
 library(sf)        # core vector GIS package
 library(units)     # used for precise unit conversion

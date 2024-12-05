@@ -1,3 +1,6 @@
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+
 b<-read.table("../data/BTLD.txt", header=T)
 
 mean(b$ClutchsizeAge7, na.rm = TRUE) #mean clutch size when chicks are 7 days old

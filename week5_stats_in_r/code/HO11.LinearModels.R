@@ -1,3 +1,6 @@
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+
 rm(list=ls())
 daphnia <- read.delim("../data/daphnia.txt")
 summary(daphnia)
@@ -8,7 +11,7 @@ plot(Growth.rate ~ as.factor(Detergent), data=daphnia)
 plot(Growth.rate ~ as.factor(Daphnia), data = daphnia)
 #no outliers found
 
-#lets check for homogenuiety of variances
+#lets check for homogeneity of variances
 #A rule of thumb (for ANOVA) is that the ratio between the largest
 #and smallest variance should not be much more than 4 (this is a conservative estimate).
 

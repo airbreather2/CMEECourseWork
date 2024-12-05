@@ -1,3 +1,7 @@
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+
+
 #############################REFIT MODEL WITH ADJUSTED TREE IDS WHERE TREES ARE NOT SINGLE
 
 

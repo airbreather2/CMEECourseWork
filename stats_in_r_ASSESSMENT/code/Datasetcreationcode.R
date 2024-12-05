@@ -1,3 +1,7 @@
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+
+
 #How Repeatable is Budburst? dataset creation 
 
 #create a dataframe by quercus.robur, tree ID (random effect), location (random effect), (year fixed)-convert to julian date? , bud burst (only get values that are 2 or less than 2, definitive bud burst has occured)

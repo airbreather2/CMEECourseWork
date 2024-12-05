@@ -1,3 +1,6 @@
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+
 rm(list=ls())
 x<-c(1,2,3,4,8)
 y<-c(4,3,5,7,9)

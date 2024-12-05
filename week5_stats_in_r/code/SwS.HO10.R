@@ -1,3 +1,6 @@
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+
 rm(list = ls())
 # create three data sets y with different variances (1, 10, 100)
 # rnorm() requires sample size (20), mean and sd

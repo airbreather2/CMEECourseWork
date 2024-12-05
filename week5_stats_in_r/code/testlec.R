@@ -1,3 +1,6 @@
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+
 x <-c(1,2,3,4,8,1,1)
 y <-c(4,3,5,7,9,4,5)
 model1 <- lm(y~x)

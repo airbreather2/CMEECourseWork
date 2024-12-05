@@ -16,15 +16,17 @@
 # Example of a while loop that breaks when i reaches 10
 i <- 0  # Initialize i
 
-while(i < Inf){  # Loop until i reaches infinity (or until break)
-  if (i == 10){
-    break  # Exit the loop when i equals 10
+while(i < Inf){  # Start a loop that will theoretically run forever, as Inf represents infinity.
+  if (i == 10){  # Check if the current value of i is equal to 10.
+    print("break reached, loop will exit")
+    break  # If i is 10, exit the loop immediately.
   } else {
-    # Print the value of i
+    # Print the current value of i with a message. The cat function is used for concatenation and printing.
     cat("i equals ", i , "\n")
-    i <- i + 1  # Update i
+    i <- i + 1  # Increment the value of i by 1 to move to the next iteration.
   }
 }
+
 
 # The script prints values of i from 0 to 9 until the break condition (i == 10) is met
 

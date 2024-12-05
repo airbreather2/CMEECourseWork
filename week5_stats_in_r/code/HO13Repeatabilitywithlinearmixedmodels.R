@@ -1,3 +1,6 @@
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+
 ########Linear Mixed Models ############
 # Work much better with unbalanced dataset
 #easier way to calculate repeatibility

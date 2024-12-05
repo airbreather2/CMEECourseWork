@@ -1,3 +1,6 @@
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+
 # Start your script by setting the seed
 set.seed(1234)  # Replace 123 with your chosen seed number
 

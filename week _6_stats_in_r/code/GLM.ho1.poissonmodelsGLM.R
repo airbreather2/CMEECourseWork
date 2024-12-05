@@ -1,6 +1,13 @@
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+
+
+####importing packages
 require(ggplot2)
 require(MASS)
 require(ggpubr)
+####################
+
 fish<- read.csv("../data/fisheries.csv", stringsAsFactors = T)
 str(fish)
 

@@ -1,3 +1,7 @@
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+
+
 rm(list=ls())
 
 d<-read.table("../data/SparrowSize.txt", header=TRUE)
@@ -27,4 +31,4 @@ cor.test(dat$Wing,dat$Tarsus)
 
 
 
-#########missing the fucking data in the handout FUCK ########################
+#########missing the data in the handout ########################

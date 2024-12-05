@@ -1,3 +1,6 @@
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+
 
 x <- c(1, 2,3, 7 , 22) 
 y <- c(1, 2,3, 7 , 22, 4, 6, 7, 8) 

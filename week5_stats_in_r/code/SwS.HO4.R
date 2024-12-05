@@ -1,3 +1,6 @@
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+
 rm(list=ls())
 d<-read.table("../data/SparrowSize.txt", header=TRUE)
 d1<-subset(d, d$Tarsus!="NA") #This creates a new dataframe d1 that excludes any rows where the Tarsus column has an "NA" (missing) value.

@@ -1,29 +1,28 @@
-# **[Week 5- Stats in R part 1]**
+# **[Week 5- Stats in R part 2]**
 
 ## **Description**
-[The following contents of the folder contain course materials from the first week of the stats in r module]
+[The following contents of the folder contain course materials from the second week of the stats in r module]
 
 ---
 
-## **Language**
-[Specify the programming language(s) used.]
+## **Languages**
+[R]
 
 ---
 
 ## **Dependencies**
-[List the required dependencies along with their versions.]  
-Example:
-- Software: [Version]  
-- Packages: [Package1], [Package2]
 
----
-
-## **Installation**
 [Provide the commands or steps to install the necessary dependencies.]  
 Example:
 ```r
-install.packages("Package1")
-install.packages("Package2")
+install.packages("ggplot2")
+install.packages("MASS")
+install.packages("ggpubr")
+install.packages("lme4")
+install.packages("lmertest")
+install.packages("lmtest")
+install.packages("psych")
+install.packages("usdm")
 ```
 
 ## Repository Structure

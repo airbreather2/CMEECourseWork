@@ -18,8 +18,8 @@
 
 ### R Scripts in `week3/code`
 
-1. **break.R**: The code demonstrates a break condition effectively. Adding comments for each condition, like `i == 10`, would improve clarity.
-2. **sample.R**: Illustrates sampling techniques efficiently. Adding a brief summary of performance differences between preallocation and non-preallocation methods would make the example more informative.
+1. **break.R**: The code demonstrates a break condition effectively. Adding comments for each condition, like `i == 10`, would improve clarity.   #DONE
+2. **sample.R**: Illustrates sampling techniques efficiently. Adding a brief summary of performance differences between preallocation and non-preallocation methods would make the example more informative. #DONE
 3. **Vectorize1.R**: Demonstrates the speed advantage of vectorized functions. Additional comments clarifying the performance benefits would be helpful.
 4. **R_conditionals.R**: This file has functions for checking numeric properties. Edge case handling (e.g., `NA` values) and additional comments for each function would enhance robustness.
 5. **apply1.R**: Uses `apply()` effectively for row and column calculations. Descriptions of each calculation step would make the code easier to understand.

@@ -1,3 +1,6 @@
+#!/usr/bin/env Rscript
+# Author: Sebastian Dohne <sed24@ic.ac.uk>
+
 ###########Binomial and Binary Models################
 
 #Remember the three steps of generalised linear models

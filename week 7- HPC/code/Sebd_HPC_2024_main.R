@@ -4,7 +4,7 @@
 # EXACTLY the same function and parameter names and beware that you may lose
 # marks if it doesn't work properly because of not using the pro-forma.
 
-name <- "Seabstian Dohne"
+name <- "Sebastian Dohne"
 preferred_name <- "Seb"
 email <- "sed24@ic.ac.uk"
 username <- "sed24"
