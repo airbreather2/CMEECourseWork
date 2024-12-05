@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 
 """Some functions exemplifying the use of control statements"""
-#docstrings are considered part of the running code (normal comments are
-#stripped). Hence, you can access your docstrings at run time.
 
+__appname__ = '[controlflow.py]'
 __author__ = 'Sebastian Dohne (sed24@ic.ac.uk)'
 __version__ = '3.12.3'
 
@@ -33,6 +32,7 @@ def even_or_odd(x=0):
     if x % 2 == 0:  # Check if x is divisible by 2
         return f"{x} is Even!"
     return f"{x} is Odd!"
+
 
 
 def largest_divisor_five(x=120):

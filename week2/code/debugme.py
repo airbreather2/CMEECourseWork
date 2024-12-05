@@ -13,8 +13,7 @@ License: License for this code/program
 
 __appname__ = '[debugme.py]'
 __author__ = 'Sebastian Dohne (sed24@ic.ac.uk)'
-__version__ = '0.0.1'
-__license__ = "License for this code/program"
+__version__ = '3.12.3'
 
 
 def buggyfunc(x):

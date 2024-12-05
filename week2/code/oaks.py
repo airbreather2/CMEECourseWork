@@ -5,15 +5,11 @@ Description: This script identifies oak species (those that start with 'Quercus 
 from a given list of taxa using both for loops and list comprehensions. 
 Additionally, it prints the oak species names in uppercase using both methods.
 
-Author: Sebastian Dohne (sed24@ic.ac.uk)
-Version: 0.0.1
-License: License for this code/program
 """
 
 __appname__ = '[oaks.py]'
 __author__ = 'Sebastian Dohne (sed24@ic.ac.uk)'
-__version__ = '0.0.1'
-__license__ = "License for this code/program"
+__version__ = '3.12.3'
 
 
 

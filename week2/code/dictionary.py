@@ -6,14 +6,11 @@ taxonomic order names to sets of taxa (species). It uses both conventional loops
 list comprehensions to achieve this. The script prints the resulting dictionary to the screen.
 
 Author: Sebastian Dohne (sed24@ic.ac.uk)
-Version: 0.0.1
-License: License for this code/program
 """
 
 __appname__ = '[dictionary.py]'
 __author__ = 'Sebastian Dohne (sed24@ic.ac.uk)'
-__version__ = '0.0.1'
-__license__ = "License for this code/program"
+__version__ = '3.12.3'
 
 
 # List of tuples containing species and their taxonomic order

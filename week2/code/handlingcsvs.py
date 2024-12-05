@@ -10,15 +10,11 @@ Description: This script demonstrates how to read and write CSV files using Pyth
 
 The script is designed for processing taxonomic data and demonstrates basic file I/O operations.
 
-Author: Sebastian Dohne (sed24@ic.ac.uk)
-Version: 0.0.1
-License: License for this code/program
 """
 
 __appname__ = '[handlingcsvs].py]'
 __author__ = 'Sebastian Dohne (sed24@ic.ac.uk)'
-__version__ = '0.0.1'
-__license__ = "License for this code/program"
+__version__ = '3.12.3'
 
 ## Imports
 import csv

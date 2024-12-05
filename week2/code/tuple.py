@@ -5,15 +5,11 @@ Description: This script processes a tuple of bird species, each containing the 
 common name, and mass. It outputs each species' information on a separate line in a 
 readable format, including the Latin name, common name, and mass.
 
-Author: Sebastian Dohne (sed24@ic.ac.uk)
-Version: 0.0.1
-License: License for this code/program
 """
 
 __appname__ = '[tuple.py]'
 __author__ = 'Sebastian Dohne (sed24@ic.ac.uk)'
-__version__ = '0.0.1'
-__license__ = "License for this code/program"
+__version__ = '3.12.3'
 
 
 birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),

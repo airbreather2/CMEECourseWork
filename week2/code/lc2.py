@@ -7,15 +7,11 @@ using both list comprehensions and conventional loops. It performs the following
 - Creates a list of month names where rainfall is less than 50 mm.
 - Recreates both tasks using conventional loops.
 
-Author: Sebastian Dohne (sed24@ic.ac.uk)
-Version: 0.0.1
-License: License for this code/program
 """
 
 __appname__ = '[lc2.py]'
 __author__ = 'Sebastian Dohne (sed24@ic.ac.uk)'
-__version__ = '0.0.1'
-__license__ = "License for this code/program"
+__version__ = '3.12.3'
 
 
 # Average UK Rainfall (mm) for 1910 by month

@@ -20,14 +20,25 @@ import sys # module to interface our program with the operating system
 
 ## functions ##
 def main(argv):
-    """ Main entry point of the program """
-    print('This is a boilerplate') # NOTE: indented using two tabs or 4 spaces
+    """
+    Main entry point of the program.
+    
+    Args:
+        argv (list of str): Command-line arguments.
+    
+    Returns:
+        int: Exit status (0 for success).
+    """
+    print('This is a boilerplate')  # NOTE: indented using two tabs or 4 spaces
     return 0
 
-if __name__ == "__main__": 
-    """Makes sure the "main" function is called from command line"""  
+if __name__ == "__main__":
+    """
+    Executes the main function when the script is run directly.
+    """
     status = main(sys.argv)
     sys.exit(status)
+
 #sys.exit(status)
 #this is how to terminate the python programme in an explicit manner returning an status code
 

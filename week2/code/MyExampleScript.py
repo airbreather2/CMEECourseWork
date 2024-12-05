@@ -5,15 +5,11 @@ Description: This script demonstrates a simple function `foo` that multiplies
 a number by itself and prints the result. The script also includes instructions 
 on how to run it using different Python interpreters in the terminal.
 
-Author: Sebastian Dohne (sed24@ic.ac.uk)
-Version: 0.0.1
-License: License for this code/program
 """
 
 __appname__ = '[MyExampleScript.py]'
 __author__ = 'Sebastian Dohne (sed24@ic.ac.uk)'
-__version__ = '0.0.1'
-__license__ = "License for this code/program"
+__version__ = '3.12.3'
 
 def foo(x):
     """
