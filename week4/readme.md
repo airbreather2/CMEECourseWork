@@ -1,36 +1,26 @@
-# **[Week 5- Stats in R part 1]**
+# **[Week 4]**
 
 ## **Description**
-[The following contents of the folder contain course materials from the first week of the stats in r module]
+[The following contents of the folder contain script from week 4 of the CMEE bootcamp ]
 
 ---
 
 ## **Language**
-[Specify the programming language(s) used.]
+[Python]
+[Jupyter notebooks]
 
 ---
 
 ## **Dependencies**
 [List the required dependencies along with their versions.]  
-Example:
-- Software: [Version]  
-- Packages: [Package1], [Package2]
 
----
-
-## **Installation**
-[Provide the commands or steps to install the necessary dependencies.]  
-Example:
-```r
-install.packages("Package1")
-install.packages("Package2")
-```
+pip install jupyter
 
 ## Repository Structure
 [Outline the structure of the repository]  
 Example:
-- `code/` – Contains scripts such as `file1.R`, `file2.R`.
-- `data/` – Contains datasets such as `data1.txt`, `data2.csv`.
+- `code/` – Contains various python and jupyter script from experimenting during the bootcamp.
+- `data/` – Contains datasets .
 - `results/` – Folder to store output and results from scripts.
 - `sandbox/` – Folder for experimental code and testing.
 
