@@ -1,3 +1,6 @@
 *~ 
 *.tmp
 *.pptx
+*.log
+*.RData
+*.log
