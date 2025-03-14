@@ -1,0 +1,223 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage[a4paper,left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{cite}
+\usepackage{setspace}
+\usepackage{graphicx}  % For figures
+\usepackage{booktabs}  % For improved table formatting
+\usepackage{caption}   % Better table/figure captions
+\usepackage{placeins}  % For FloatBarrier to prevent overlaps
+
+\title{CMEE Miniproject}
+\author{[Sebastian Dohne]}
+\date{}
+
+\begin{document}
+\begin{titlepage}
+    \includegraphics[width=0.4\textwidth]{download.png}\\
+    \begin{center}
+    \vspace{1.75cm}
+    \Large
+        \textbf{Observing Microbial Population Growth across temperature gradients: A Comparison of the performance of phenomenological and mechanistic mathematical growth models }
+        \vspace{2.5cm}\\
+        \textbf{Sebastian Dohne}\\
+        CID: 01776389\\
+        \vspace{1.5cm}
+        \large
+        Course Lead:\\
+        Saamrat Pawar\\
+        \vspace{1.5cm}
+        Word Count: \wordcount{100} \\
+        \vspace{4cm}
+        A Mini-Project report submitted for the MSc in:\\ \textbf{Computational Methods in Ecology and Evolution}\\
+        \vspace{1.5cm}
+        Department of Life Sciences\\
+        Imperial College London\\
+        2025
+    \end{center}
+\end{titlepage}
+
+\begin{abstract}
+In this study, I have successfully compared linear and non-linear phenomenological and mechanistic models and compared their overall performance, aswell as their performance across temperature gradients in the form of the cubic, logistic and Gompertz functions. The results support the wide usage of the Gompertz in the literature in regards to bacterial growth modeling, as it outperformed both the mo
+\end{abstract}
+
+\pagebreak
+
+\section{Introduction}
+The historical use of mathematical modeling of bacteria has provided has provided key insight for many fields and industries such as medicine, food safety, biotechnology and environmental science among many others. Metabolic pathways, adaptability to  extreme conditions, microbial interactions and the control of pathogenic bacteria are just some of the fields that the use phenomenological, emperical and mechanistic models have provided insight into. Microbial growth, is also one fundamental field in microbiology and the employing these methods have allowed us to have allowed us to identify, define and predict its key stages \cite{esser2015modeling}. The typical growth curve for bacteria in a closed system, manifests itself in an initial lag phase which can be considered an adaptation phase, and is characterized by cellular activity rather than growth where bacteria need to synthesis enzymes and coenzymes for growth, this then followed by exponential growth, slowing and plateauing into a stationary phase, where carrying capacity due to nutrient inavalilability is reached, which is followed by a mortality phase as nutrient availability declines\cite{Peleg01122011,maier2015bacterial,lo2023generalized}. Temperature for instance, has a profound impact on the length of these phases as biochemical reaction rates increase with temperature according to the Boltzmann-Arhenius equation towards an optimum, before thermal denaturation of enzymes occurs \cite{michaelis1913kinetik, zwietering1994modeling, dell2011systematic} accelerating growth.   
+\setlength{\parskip}{1.2em} % Adds space between paragraphs
+
+Increasingly Model selection proven to provide and alternative over the traditional approach of hypothesis testing, which focuses on rejecting arbitrary null hypotheses using arbitrary probability thresholds, as it directly compares multiple biologically meaningful hypotheses. Models are compared to another by evaluating relative support in the data, and are thus able to be ranked and weighted against another using tools such as information criteria \cite{johnson2004model}. using this framework, phenomenological models, which lack inherent biological meaning have been employed as benchmarks for comparison. In the context of bacterial growth modeling, such models like the linear polynomial cubic model have been employed for their ability to accommodate inflection points, allowing them to transition between growth phases, and while they have a risk of overfitting, it is less so than its higher-order counterparts \cite{garcia2021primary}. With polynomial models like these however due to their phenomenological nature, it is difficult to ascertain biological significance from generated coefficients \cite{Peleg01122011,motulsky2004fitting}.   
+
+Mechanistic models, which are derived from theoretical understanding of underlying processes are also employed, incorporating specific biological mechanisms with parameters having clear biological interpretation. The Logistic growth model based on the verhulst model has been used to model bacterial growth and been modified in many different ways\cite{Peleg01122011}. It is characterized by a sigmoidal growth curve, which resembles the lag, exponential and stationary phases closely, despite only having 3 parameters in it standard form, carrying capacity, intrinsic growth rate and initial population size. As such, it is a very parsimonious model and thus generalizable. Another empirical sigmoidal model is The Gompertz model, which is frequently employed model when observing bacterial growth specifically due to its flexibility and generalisability, with it being used particularly frequently when observing bacterial growth as it's parameters can be adjusted to account for lag time specifically if required, unlike the standard logistic model. Due to their sigmoidal shapes however, both models suffer when accounting for the final bacterial stage in closed systems, where they fail to capture the mortality phase\cite{buchanan1997simple, Peleg01122011}.                
+The 3 models, Cubic, Logistic and a modifed Gompertz function were fit to a bacterial dataset and compared using classical statistical approaches and information criteria, in an effort to observe how consistently each perform and how robust they are on a varied microbial species dataset, which were grown on a selection of media, at a variety of temperatures with different measurement units. Particular importance was placed on various temperature gradients to in an effort observe model responses to changes in bacterial growth patterns.    
+
+\setlength{\parskip}{1.2em} % Adds space between paragraphs
+
+
+\section{Materials and Methods}
+    \subsection{Data Collection}
+    A large microbial dataset was aggregated from the findings of various studies totaling 305 separate experiments - with each being given a group ID - observing microbial growth data over time at various temperatures (ranging from 0-37$^\circ$C) and was subsequently utilized for analysis \cite{roth1962continuity, sivonen1990effects, bae2014growth, gill1991growth, bernhardt2018metabolic, zwietering1994modeling, galarz2016predicting, karnat2024study, stannard1985temperature, phillips1987relation}. The dataset included a diverse range of bacterial genera from various taxonomic groups, including gram-positive and gram-negative organisms. Microbes from various environmental niches were represented, which included: common laboratory strains, environmental isolates, and clinically relevant species. Substrates on which these bacteria were grown in also varied from laboratory broths and agar as-well as meat and dairy based media. Growth was recorded in experiments over time in hours using either: OD-595, cell number, colony-forming units, and dry weight.
+    \setlength{\parskip}{1.2em} % Adds space between paragraphs
+    
+    This data set was then refined, eliminating the collection errors that occurred during each experiment, such as recording values twice, removing microbial growth and time-point values that were negative and removing NA's in the data. Bacterial mass was plotted against time for each group, and groups with severely flawed data collection were manually excluded from the analysis. Finally, bacterial groups with less than data 6 points were excluded from the analysis, as it was deemed that meaningful models could not be fitted to the data.   
+    After cleaning the data, 274 of the 305 experiments remained. This subset of compiled growth formed the foundation for analysis in order to observe model effectiveness when observing bacterial growth data. 
+    \setlength{\parskip}{1.2em} % Adds space between paragraphs
+
+    In order to compare differences between model accuracy across temperature gradients, these experiments were again split up into 3 groups, representing temperature gradients to be analysed, these were defined as low (0-12$^\circ$C) consisting of 107 experiments, medium (12-25$^\circ$C) with 88 experiments and high (25-37$^\circ$C), 72 experiments. The temperature ranges were defined as such reflect cold, ambient temperatures and environments which facilitate optimal growth rates \cite{ratkowsky1982relationship}. This allowed me to compare where models perform best when bacteria exhibit behaviors at different temperatures.
+
+\subsection{Models}
+
+To the growth dataset, the following phenomenological and mechanistic models were then fit:
+    \setlength{\parskip}{1.2em} % Adds space between paragraphs
+
+    \noindent The \textbf{linear cubic model} was fit using the standard formula:\\
+    \[f(x) = ax^3 + bx^2 + cx + d\]\\
+    The \textbf{non-linear logistic model} was fit using the formula\cite{verhulst1838notice,tsoularis2002analysis}:\\
+    \[N_t = \frac{N_0 K e^{r t}}{K + N_0 (e^{r t} - 1)}\]\\
+    And the \textbf{non-linear modified Gompertz} was fit using the formula\cite{zwietering1990modeling}:\\
+    \[\log(N_t) = N_0 + (N_{max} - N_0) e^{-e^{r_{max} \exp(1) \frac{t_{lag} - t}{(N_{max} - N_0) \log(10)} + 1}}\]
+
+Of which their parameters are:
+
+\begin{itemize}
+  \item $N_0$: population size for time $0$
+  \item $N_t$: population size for time $t$
+  \item $K$: the carrying capacity
+  \item $r$: growth rate
+  \item $N_{max}$: maximum population size
+  \item $r_{max}$: maximum growth rate
+  \item $t_{lag}$: lag time before growth
+\end{itemize}
+
+    \subsection{Model Fitting and Comparisons}
+The cubic, Logistic and Gompertz models were each fitted to bacterial growth data using the Levenberg-Marquardt algorithm using Non-linear least squares regression. This was because algorithm lends itself well to these growth curves due to its ability to adjust its tuning parameter $\lambda$ to switch between two strategies: gradient descent and Gauss-newton, allowing for fast and robust convergence on the correct coefficients even with noisy or sparse data, while minimizing the residual sum of squares. It also prevented parameters from becoming too large during fitting\cite{transtrum2012improvements}.   
+\setlength{\parskip}{1.2em} % Adds space between paragraphs
+
+After the cubic function was fit to the data. Using nlsLM, for the Logistic(N) and Gompertz(Log(N)) models starting values were inputted for each each group-ID, and lower bounds were established. Starting values were defined as the following: For the logistic and Gompertz, $N_0$ was defined as the minimum value in growth data and $K$ as 1.1x the maximum growth value, with $r$ as 0.1. For the Gompertz ,$t_{lag}$ was estimated to be at the point between values where acceleration of growth-rate was greatest ($r_{max}$), the beginning of the exponential phase. Lower bounds were set to ensure biologically meaningful parameter estimates and to prevent fitting errors.  
+To avoid 0 division errors, the growth rate was constrained to \( r_{\text{max}} \geq 1 \times 10^{-5} \).  
+The carrying capacity was restricted to \( N_{\max} \geq \min(\log N) \) in the Gompertz model and \( K > 0.5 \times \max(\text{PopBio}) \) in the logistic model to ensuring valid population limits.  
+The initial population size \( N_0 \) was -1 of the the smallest \(\log N\) in the Gompertz model to accommodate log transformation but was constrained to \( N_0 \geq 0 \) in the logistic model.  
+Finally, the lag time was set to \( t_{\text{lag}} \geq 0 \), as it could not be negative.  
+
+          
+\setlength{\parskip}{1.2em} % Adds space between paragraphs
+
+When the models were fit, I used a stochastic multi-start optimization approach. This was achieved by initiating 200 models to be fit for each group ID by drawing a value from a normal distribution with an SD of 0.1 for each parameter, while ensuring each parameter was at least 0. Rsquared and AICc aswell as other metrics that could be used for comparison were stored when model fitting and the 200 models were then compared against another by using R squared and AICc values. The first 50 models of each run were compared by R squared value to establish a strong starting model, and the subsequent 150 models generated were then compared against another using their AICc values to produce an optimized model for logistic and gompertz per group-ID. The reason why AICc values were selected as the main comparator between models is because of its ability to balance model fit with complexity, penalizing overfitting while generalizing well. Specifically the corrected term was used over the standard AIC for its bias correction term for small sample sizes -which many of the group-IDS have- and it's ability to converge towards the AIC regardless when comparing $n$ to the number of model parameters\cite{anderson2004model, johnson2004model}. 
+\setlength{\parskip}{1.2em} % Adds space between paragraphs
+
+As a result, optimal logistic and gompertz models were fit to each of the 274 groups. However, in less than 8 groups, convergence was not reached for either cubic, Gompertz or logistic and these were removed for inter-model comparison. Relevant model metrics were then recorded. For each Group-ID where the phenomenological and mechanistic models were compared, frequencies were recorded for each group where $\Delta$AICc $>$ 2 \cite{anderson2004model}, adjusted R squared was the highest and Akaike weight was at least 0.95 for the model representing a 95\% confidence interval\cite{posada2004model} as they were defined as winning models in each of these categories. And observed across the low, medium and high temperature gradients. 
+
+
+    \subsection{Computing Tools}
+     Analysis of the dataset was completed entirely in \textbf{}{R Version - 4.3.3}. The Tidyverse ecosystem was used for data wrangling using dpylr, as-well as plotting and visualization with GGPLOT2, GGPUBR. The Gridextra and Cowplot packages were also used for arranging and improving visualisation for generated plots. Model fitting using NLLS was performed using the Levenberg-Marquand algorithm via the use of the minipack.lm package. The parallel package was also used to maximize local computing speed when implementing the stochastic multi-start optimization approach for fitting the models.  
+
+
+\section{Results}
+
+Overall, the model with the strongest support was found to be the Gompertz model as for all categories it had the highest win count, suggesting it is best supported by the data, showing substantially better trade-offs between fit and complexity for the most group-IDs. Consistency seems to diminish however when inspecting across temperature ranges, the logistic and cubic models became more competitive at with increasing temperatures.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Frequency count of model ``winners'' across temperature ranges}
+  \label{tab:model_selection}
+  \setlength{\tabcolsep}{10pt} % Wider spacing between columns
+  \begin{tabular}{llccc|c}
+  \toprule
+  \textbf{Criterion} & \textbf{Model} & \textbf{Low(107)} & \textbf{Medium(88)} & \textbf{High(79)} & \textbf{Total(274)} \\
+  \midrule
+  \multirow{Highest Adj-R$^2$} 
+      & Cubic    & 20 & 18 & 29 & 67 \\
+      & Logistic & 21 & 28 & 11 & 60 \\
+      & Gompertz & \textbf{66} & \textbf{42} & \textbf{39} & \textbf{147} \\
+  \midrule
+  \multirow{AIC Weight (95\% CI)} 
+      & Cubic    & 6 & 15 & 18 & 39 \\
+      & Logistic & 7 & 5 & 18 & 30 \\
+      & Gompertz & \textbf{89} & \textbf{63} & \textbf{32} & \textbf{184} \\
+  \midrule
+  \multirow{AICc Winner $\Delta$AICc $>$ 2} 
+      & Cubic    & 7 & 15 & 23 & 45 \\
+      & Logistic & 9 & 7 & 21 & 37 \\
+      & Gompertz & \textbf{89} & \textbf{66} & \textbf{33} & \textbf{188} \\
+  \bottomrule
+  \end{tabular}
+  \small
+  \caption*{Note: Temperature ranges shown as Low (0-12°C), Medium (12-25°C), and High (25-37°C).}
+\end{table}
+
+\hspace{1cm}
+
+This trend continues when observing further model metrics, indicating that while Gompertz has a much lower mean AICc value at lower temperatures, this gap in model performance begins to narrow when temperatures begin to increase. When comparing the logistic against the cubic model, the cubic consistently outperformed the logistic in its adj-R$^2$ score and but the logistic had a lower AICc score for all categories. 
+
+\begin{table}[htbp]
+    \centering
+    \caption{Model performance metrics across temperature ranges}
+    \label{tab:model_performance}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{lcc}
+    \toprule
+    \textbf{Model} & \textbf{Adj-R² [95\% CI]} & \textbf{Mean AICc} \\ 
+    \midrule
+    \multicolumn{3}{l}{\textbf{Low Temperature (0-12°C)}} \\
+    Cubic & 0.895 [0.859--0.931] & 71.67 \\
+    Logistic & 0.866 [0.799--0.933] & 59.84 \\
+    Gompertz & 0.932 [0.890--0.975] & -36.52 \\
+    \midrule
+    \multicolumn{3}{l}{\textbf{Medium Temperature (12-25°C)}} \\
+    Cubic & 0.892 [0.869--0.914] & 119.23 \\
+    Logistic & 0.854 [0.805--0.903] & 106.79 \\
+    Gompertz & 0.943 [0.924--0.961] & -23.84 \\
+    \midrule
+    \multicolumn{3}{l}{\textbf{High Temperature (25-37°C)}} \\
+    Cubic & 0.813 [0.763--0.863] & 17.66 \\
+    Logistic & 0.793 [0.734--0.852] & 9.78 \\
+    Gompertz & 0.838 [0.780--0.897] & -35.51 \\
+    \midrule
+    \multicolumn{3}{l}{\textbf{Overall (All Temperatures)}} \\
+    Cubic & 0.870 [0.850--0.892] & 71.37 \\
+    Logistic & 0.841 [0.806--0.876] & 60.50 \\
+    Gompertz & 0.908 [0.883--0.933] & -32.17 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\FloatBarrier % Ensures tables are placed before moving to figures
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{model_comparison_by_temp_ranges.png}
+    \caption{Example Group Subsets Showing Model Performance Across Different Temperature Ranges: All three models generally matched growth patterns. Distinct differences in model performance could be observed however at different temperatures. At low temperatures, all models fit relatively well, but the logistic and gompertz more accurately matched early growth patterns. At medium temperatures Gompertz and logistic were able to capture stationary phases more effectively where the cubic showed evidence of overfitting to the mortality phase in the data. At higher temperatures the cubic over and underestimated stationary growth where the logistic and gompertz formed a plateau.}
+    \label{fig:model_performance}
+\end{figure}
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{AICc_weight_violin.png}
+    \caption{AICc Weight Distribution for Logistic, Gompertz, and Cubic Models for low, medium and high temperatures with lines in the violins representing 0.25, 0.5 and 0.75 probability quantiles. Gompertz outperforms Logistic and cubic in lower temperatures but it loses dominance at medium temperatures. At high temperatures a much more balanced distribution of AICc is observed indicating higher uncertainty and variability in model selection.}
+    \label{fig:aic_weight_distribution}
+\end{figure}
+
+
+\FloatBarrier % Ensures all figures are placed before moving to the next section
+
+\section{Discussion}
+% Interpret results in the context of your research question
+Overwhelmingly, the results of this analysis have proven the Gompertz model to be the clear winner over the logistic function and the cubic model in its use-case in fitting to, and predicting bacterial growth. With this being especially evident at lower temperature ranges where it had almost 10x the winner score of the nearest model in terms of AICc and Aikake weight and was 3x more likely to have a higher adjusted R$^2$ value that the closest competing model. While the gompertz "won" the most times in all categories with this dominance shifting towards optimum bacterial growth temperatures proven by the fairly even distribution of aikake weights in this category. These results are perhaps unsurprising and have been supported empirically \cite{buchanan1997simple,Peleg01122011,zwietering1990modeling}. By design, the Gompertz allows for flexibility in its growth curve via the usage of its $t_{lag}$ parameter, thus providing an advantage when it comes to capturing early growth patterns. When this factor becomes less of an advantage however, at it has been demonstrated with increased experimental temperatures, other models begin to perform comparatively.  
+
+The results of this experiments have also ended up supporting the previous understanding of each model, with the focus of temperature gradients highlighting the features of each one with their use case. Despite Gompertz being the clear winner according the the information criteria measured by a wide margin. All models have proved themselves to fit well to the data, despite experimental groups having a plethora of different starting conditions from measurement units, media, species measured and temperature, having very high adj R$^2$ scores demonstrating their use case in the context of estimating and predicting bacterial growth with how generalized they are. Calculating information criteria like AICc and its weights has however allowed us to understand why the gompertz model definitely is and the logistic model may still be a better choice than linear polynomial functions.
+
+It was visually observed that both the logistic and Gompertz were able to more effectively capture lag phases and stationary phases across group-IDs due to their sigmoidal shapes, with their flexibility allowing them to fit well to at increased temperatures, where exponential growth occurred sooner giving them more biological relevance, which is further reflected that even in cases where the cubic may fit the best out of the non-linear functions, it is difficult to ascertain any biological significance out of it's coefficients, which isn't to say it hasn't been experimentally attempted \cite{garcia2021primary}. It is worth raising that in cases where the cubic did outperform the mechanistic models, it may have been attributed to the event that the other two mechanistic models fail to consider, namely the death phase \cite{Peleg01122011}, since it is usually observed closed systems. Where the two models plataeu towards the maximum observed bacteria per group, the cubic was observed using its inflection points to overfit to the declining bacterial data, potentially increasing its perceived efficacy in modeling bacterial behavior, highlighting the importance of information criteria to spot actions like this \cite{johnson2004model}.
+
+Despite the systematic approach to model selection this study utilized. It presents several areas of improvement which should be considered when interpreting the results. While the heterogeneity of the dataset provided a strong vehicle to demonstrate the Generalisability of the models. It may have diminished the ability of the models to detect underlying patterns in the data, with frequent temporal variability across all group-IDs in measurement providing potential issues for models to accurately capture the complete growth curve. Also while in total, the data shows strong support for the gompertz with 274 groups being compared, with the lower experiment numbers for each temperature gradients, this general assessment can be scrutinized. Finally, Model selection itself could have been refined aswell, further, less parsimonious primary models, like the baranyi model could have been considered, which is specific to microbial growth, incorporating a lag phase in its parameters over a singular lag time, as well. The utilization of splines in the form of three phase linear methods also could add value to the experimental method as it has done before in previous research \cite{buchanan1997simple}.  
+
+\section{Conclusions}
+I successfully fit and compared the phenomenological and mechanistic cubic, logistic and Gompertz functions using NLLS and information criteria to provide insight into their comparative overall robustness, aswell as their performance across temperature gradients on a highly varied microbial dataset. While all models fit well to the data proving generalising abilities. The results supported established the wide usage of the Gompertz in the literature in regards to bacterial growth modeling, as it outperformed both the non-linear logistic equation and the cubic equation across all temperature estimates according to all comparison metrics utilized, waning dominance however when approaching higher temperatures. In model strength and weaknesses were identified and confirmed, providing supporting evidence in supported ideas in the field of microbial modelling. 
+
+
+\pagebreak
+\bibliographystyle{plain}
+\bibliography{references.bib}
+
+\end{document}
