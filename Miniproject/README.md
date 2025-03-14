@@ -13,23 +13,27 @@ This repository contains the code and analysis for the CMEE Miniproject focused 
 - Analyze effects of temperature on model performance
 
 ## Repository Structure
-MiniProject/
-├── code/
-│   ├── data-preparation.R      # Data cleaning and preparation
-│   ├── model-fitting.R         # Core model fitting functionality
-│   ├── model-validation-plotting.R  # Model comparison and visualization
-│   └── run_miniproject.sh      # Master script to run the entire workflow
-├── data/
-│   └── LogisticGrowthData.csv  # Raw bacterial growth dataset and accompanying metadata
-└── output/
-├── all_best_models.csv     # Complete model comparison results
-├── AICc_weight_violin.png  # Visualization of model weights
-├── model_comparison_by_temp_ranges.png  # Visual model comparisons
-├── low_temp_summary.csv    # Results for 0-12°C range
-├── medium_temp_summary.csv # Results for 12-25°C range
-├── high_temp_summary.csv   # Results for 25-37°C range
-└── total_temp_summary.csv  # Aggregate results across all temperatures
 
+Here's the repository structure in markdown with bullet points:
+
+## Repository Structure
+
+* MiniProject/
+  * code/
+    * data-preparation.R            # Data cleaning and preparation
+    * model-fitting.R               # Core model fitting functionality
+    * model-validation-plotting.R   # Model comparison and visualization
+    * run_miniproject.sh            # Master script to run the entire workflow
+  * data/
+    * LogisticGrowthData.csv        # Raw bacterial growth dataset and accompanying metadata
+  * output/
+    * all_best_models.csv           # Complete model comparison results
+    * AICc_weight_violin.png        # Visualization of model weights
+    * model_comparison_by_temp_ranges.png  # Visual model comparisons
+    * low_temp_summary.csv          # Results for 0-12°C range
+    * medium_temp_summary.csv       # Results for 12-25°C range
+    * high_temp_summary.csv         # Results for 25-37°C range
+    * total_temp_summary.csv        # Aggregate results across all temperatures
 
 ## Implemented Models
 
