@@ -222,9 +222,9 @@ high_group_ids <- model_comparison %>%
 
  #Sample three group IDs from each temperature range
 set.seed(124)  # For reproducibility
-low_sample    <- sample(low_group_ids,    4)
-medium_sample <- sample(medium_group_ids, 4)
-high_sample   <- sample(high_group_ids,   4)
+low_sample    <- sample(low_group_ids,    3)
+medium_sample <- sample(medium_group_ids, 3)
+high_sample   <- sample(high_group_ids,   3)
 
 # Generate plots for each range using plot_group_fits() 
 low_plots    <- lapply(low_sample, plot_group_fits)
@@ -233,9 +233,9 @@ high_plots   <- lapply(high_sample,   plot_group_fits)
 
 ### Arrange the nine plots in a 3x3 grid ###
 combined_grid <- grid.arrange(
-  arrangeGrob(grobs = low_plots,    ncol = 4, top = "Temperature Range 0-12°C"),
-  arrangeGrob(grobs = medium_plots, ncol = 4, top = "Temperature Range 12-25°C"),
-  arrangeGrob(grobs = high_plots,   ncol = 4, top = "Temperature Range 25-37°C"),
+  arrangeGrob(grobs = low_plots,    ncol = 3, top = "Temperature Range 0-12°C"),
+  arrangeGrob(grobs = medium_plots, ncol = 3, top = "Temperature Range 12-25°C"),
+  arrangeGrob(grobs = high_plots,   ncol = 3, top = "Temperature Range 25-37°C"),
   ncol = 1
 )
 
