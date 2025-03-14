@@ -1,5 +1,9 @@
 # CMEE Miniproject: 
 
+**Author:** Sebastian Dohne  
+**Email:** [sed24@ic.ac.uk](mailto:sed24@ic.ac.uk)  
+**Course:** MSc CMEE 
+
 ## Project Overview
 This repository contains the code and analysis for the CMEE Miniproject focused on bacterial growth modeling. The project compares multiple mathematical models (Cubic, Logistic, and Gompertz) to determine which best fits empirical bacterial growth data across different temperature ranges.
 
