@@ -1,5 +1,10 @@
 # High-Performance Computing for Ecological Neutral Theory Simulations
 
+
+**Author:** Sebastian Dohne  
+**Email:** [sed24@ic.ac.uk](mailto:sed24@ic.ac.uk)  
+**Course:** MSc CMEE 
+
 ## Overview
 This submission is part of the hand in for the high-performance computing (HPC) module to run large-scale stochastic simulations of species abundance, richness, and population dynamics. The project consists of deterministic, stochastic, and coalescence-based models, analyzing their computational efficiency and ecological implications.
 
