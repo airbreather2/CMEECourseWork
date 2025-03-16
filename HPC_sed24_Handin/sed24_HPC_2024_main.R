@@ -5,7 +5,6 @@
 # marks if it doesn't work properly because of not using the pro-forma.
 
 name <- "Sebastian Dohne"
-preferred_name <- "Seb"
 email <- "sed24@ic.ac.uk"
 username <- "sed24"
 
@@ -17,24 +16,27 @@ username <- "sed24"
 
 # Section One: Stochastic demographic population model
 
-#Neccesary modules include: ggplot2 and parallel, they are loaded within functions which require them when run 
+#Necessary modules include: ggplot2 and parallel, they are loaded within functions when run 
 
 ##### source necessary functions
 source("Demographic.R")
 
-#####for error tracking in script
-options(show.error.locations = TRUE, error = traceback)
-
 
 # Question 0
 
+#Initialize community state consisting of adults only
+# Example Input: state_initialise_adult(6, 100)
+# Example Output: c(0, 0, 0, 0, 0, 100)
 state_initialise_adult <- function(num_stages, initial_size) {
   adult <- rep(0, num_stages) #initialise adult vector
   adult[length(adult)] <- initial_size  # Use round brackets, not square brackets (assigns the initial size to the last index of adult vector)
   return(adult)
 }
 
-
+#initialise community spread across life stages
+# Example Input: num_stages = 5, initial_size = 18
+# Example Output: c(4, 4, 4, 3, 3)
+# Explanation: 18 ÷ 5 = 3 with remainder 3, first 3 stages get +1
 state_initialise_spread <- function(num_stages, initial_size) {
   # Create a vector with the base value distributed evenly
   even_spread <- rep(floor(initial_size / num_stages), num_stages) #assigns size of pop divided by number of stages across a vector length num of stages
@@ -54,7 +56,8 @@ state_initialise_spread <- function(num_stages, initial_size) {
 
 
 # Question 1
-# Modified function to accept parameters
+
+#simulate deterministic population growth using a matrix for spread and adult only community as initial conditions and create a plot: question1.png
 question_1 <- function() {
   
   
@@ -107,6 +110,8 @@ question_1 <- function() {
 
 
 # Question 2
+#simulate stochastic population growth using a matrix for spread and adult only community as initial conditions and create a plot :question2.png
+
 
 question_2 <- function() {
   
@@ -167,9 +172,15 @@ question_2 <- function() {
 
   
 # Question 5
+# Function analyzes multiple simulation files to calculate extinction rates for 4 initial population conditions: Large Adult, Small Adult, Large Spread, Small Spread
+#
+# Example Input: function call with no parameters
+# Example Output: Returns a text explanation of findings after:
+# 1. Loading multiple .rda files containing simulation results
+# 2. Counting extinctions for each condition
+# 3. Creates a bar plot with extinction counts
+# 4. Saves plot as "question_5.png"
 
-#check if rda files are there
-  
   question_5 <- function() {
     
     rdafiles <- list.files(path = "Demographic_output_data/.", pattern = ".*[0-9]+\\.rda$", full.names = TRUE)
@@ -214,7 +225,7 @@ question_2 <- function() {
       # Load the HPC object "simulation_results"
       load(file_path)
       
-      # Count total sims in this file (should be 150)
+      # Count total simulations in this file
       num_simulations <- length(simulation_results)
       # Determine how many ended in extinction (final pop == 0)
       extinct_vec <- sapply(simulation_results, function(x) tail(x, 1) == 0)
@@ -242,7 +253,7 @@ question_2 <- function() {
     large_spread_extinction <- LS_extinction_counter / LS_total_sims
     small_spread_extinction <- SS_extinction_counter / SS_total_sims
     
-    # Print a summary
+    # Print an extinction summary
     cat("---- Extinction Counts ----\n")
     cat("Large Adult Extinctions:", LA_extinction_counter, "/", LA_total_sims, "\n")
     cat("Small Adult Extinctions:", SA_extinction_counter, "/", SA_total_sims, "\n")
@@ -278,8 +289,23 @@ question_2 <- function() {
     return("Stochastic simulations with small initial population sizes are are more prone to extinction due to a higher vulnerability to variability within the stochastic model. Inital states containing only mature adults reach extinction in less cases due to an initial uptick in new juveniles in early stages reducing vulnerability to variation in population")
   }
   
-  
+
 # Question 6
+  
+  # Function compares deterministic vs. stochastic population models for spread populations
+  #
+  # Input: None
+  # Output: 
+  # 1. Creates "question_6.png" which shows deviation between models for small and large spread conditions
+  # 2. Returns text explaining which initial condition is better approximated by deterministic model
+  # 
+  # Process:
+  # - Loads simulation data for small/large spread populations (initial conditions 3 & 4)
+  # - Calculates averaged population trend across stochastic simulations
+  # - Runs deterministic simulations using the same projection matrix
+  # - Computes deviation ratio (stochastic/deterministic) at each time step
+  # - Plots deviation as two-paneled graph
+
   question_6 <- function() {
     
     # -----------------------------
@@ -301,7 +327,7 @@ question_2 <- function() {
     num_stages   <- 4
     simul_length <- 120
     
-    # HPC code sets large_spread=100, small_spread=10
+    # HPC code sets large_spread=100, small_spread=10 (initial conditions 3 and 4)
     large_initial_spread <- 100
     small_initial_spread <- 10
     
@@ -309,6 +335,7 @@ question_2 <- function() {
     large_spread_state <- state_initialise_spread(num_stages, large_initial_spread)
     small_spread_state <- state_initialise_spread(num_stages, small_initial_spread)
     
+    #initialise growth and reproduction matrices
     growth_matrix <- matrix(
       c(0.1, 0.0, 0.0, 0.0, 
         0.5, 0.4, 0.0, 0.0, 
@@ -488,14 +515,14 @@ init_community_min <- function(size) {
   return(min_size)
 }
 
-# Question 10: Choose 2 elements in a vector
-# Example usage:
+# Question 10: 
+# This function selects two distinct random integers from 1 to max_value.
+# The numbers are chosen with equal probability.
+# example usage:
 # Possible outputs for choose_two(4): c(3, 4), c(1, 2), c(2, 4), etc.
 
 choose_two <- function(max_value) {
-  # This function selects two distinct random integers from 1 to max_value.
-  # The numbers are chosen with equal probability.
-  
+
   # Generate a random sample of 2 unique numbers between 1 and max_value
   random_int <- sample(1:max_value, 2) 
   
@@ -526,6 +553,7 @@ neutral_step <- function(community) {
 # Question 12
 #Example: simulate a generation in a community by performing x/2 neutral steps
 # If community = c(1, 2, 3, 4), this will perform 2 neutral steps (either floor(4/2) = 2 or ceiling(4/2) = 2)
+
 neutral_generation <- function(community) {
   # If there's only one individual, nothing changes
   if (length(community) == 1) {
@@ -564,7 +592,7 @@ neutral_time_series <- function(community, duration) {
 }
 
 
-# Question 14: Species Richness Over Time
+# Question 14: Plot Species Richness Over Time
 # Example usage:
 # question_14() will save "results/question_14.png" and return final richness vector.
 
@@ -917,12 +945,12 @@ neutral_cluster_run <- function(
   total_time <- proc.time()[3] - start_time  
   
   # Additional metadata
-  sp_rate         <- speciation_rate   # 🔹 Store speciation rate
-  sz              <- size              # 🔹 Store community size
-  w_time          <- wall_time         # 🔹 Store wall time limit
-  i_rich          <- interval_rich     # 🔹 Store species richness recording interval
-  i_oct           <- interval_oct      # 🔹 Store species abundance recording interval
-  burn_in_gens    <- burn_in_generations  # 🔹 Store burn-in period duration
+  sp_rate         <- speciation_rate   # Store speciation rate
+  sz              <- size              # Store community size
+  w_time          <- wall_time         # Store wall time limit
+  i_rich          <- interval_rich     # Store species richness recording interval
+  i_oct           <- interval_oct      # Store species abundance recording interval
+  burn_in_gens    <- burn_in_generations  # Store burn-in period duration
   
   # Save additional metadata along with main results**
   save(
