@@ -1,0 +1,83 @@
+HPC long practical feedback for Seb ( Sebastian Dohne ) 2025
+ 
+email : sed24@ic.ac.uk
+username : sed24
+ 
+Your final mark is : 90.23 %
+ 
+Mark allocation break down
+1) Technically correct answers to all questions worth 60 % of final grade
+Your mark :  56.4 /60
+2) Quality of free text answers worth 8 % of final grade
+Your mark :  6.2 /8
+3) Quality of graphical outputs worth 8 % of final grade
+Your mark :  8.8 /10
+4) Quality of code worth 8 % of final grade
+Your mark :  7 /8
+5) Answers to challenge questions worth 16 % of final grade
+Your mark :  12 /14
+ 
+Marks for main questions
+Q 0 :    3 / 3
+Q 1 :    4 / 4
+Q 2 :    3 / 3
+Q 3 :    10 / 10
+Q 4 :    9 / 10    comments: no .e or .o files handed in as expected
+Q 5 :    7 / 8    comments: the text answer was correct but the graph bars were mislabeled small spread and large adult were switched
+Q 6 :    6 / 10    comments: correct written answer but issue with the numbers coming out there can't be a factor of 10 difference between the two models - this must be the result of a bug or incorrect parameterisation of one of the models
+Q 7 :    2 / 2
+Q 8 :    1 / 1
+Q 9 :    1 / 1
+Q 10 :    2 / 2
+Q 11 :    2 / 2
+Q 12 :    2 / 2
+Q 13 :    2 / 2
+Q 14 :    3 / 3
+Q 15 :    3 / 3
+Q 16 :    1 / 1
+Q 17 :    1 / 1
+Q 18 :    4 / 4
+Q 19 :    3 / 3
+Q 20 :    3 / 3
+Q 21 :    2 / 2
+Q 22 :    4 / 4
+Q 23 :    6 / 6
+Q 24 :    6 / 6
+Q 25 :    9 / 10    comments: excellent, but should have handed in the .e and .o files for verification
+Q 26 :    10 / 10
+          ---------
+Total     109 / 116
+          ---------
+ 
+Marks for text quality :  6.2 /8
+Comments...
+In question 1 well written and shows understanding of the importance of adult individuals in the system - well explained
+In question 2 very well written and covers biology but misses the chance to spell out the technical reasons for why the stochastic model shows more variation
+In question 5 excellent, very well explained
+In question 6 very clear and well written
+In question 14 very good but misses the chance to go deeper into the why e.g. the last species doesn't go extinct and why the others do - random death of last individual through ecological drift
+In question 18 Well written but misses the chance to explain more deeply what's going on and to mention dynamic equilibrium
+In question 22 excellent
+ 
+Marks for graphics quality :  8.8 /10
+Comments...
+In question 1 very good but the legend cuts off part of the data
+In question 2 legend obscures the data
+In question 5 brilliant in most respects, just a shame the labels on the bars were jumbled.
+In question 6 exemplary
+In question 14 excellent, though if I'm being picky I don't think this kind of graph needs both points and lines.
+In question 18 has all the essential components of a graph but on the aesthetic side, I'd prefer no box around the legend and lines only not points and lines - try to replicate graphs as you see them appear in published papers.
+In question 22 exemplary
+In question 26 excellent, it's a shame that the output resolution was not chosen to be a bit higher
+ 
+Marks for code quality :  7 /8
+Comments...
+very well commented and engineered throughout but not following the specified function name conventions is an error.
+ 
+Marks for challenge questions :  12 /14
+Comments...
+challenge question A, excellent, if I'm being picky I'd say the graph could have been visually improved by no box around the legend and larger text size
+challenge question B, excellent
+challenge question C, excellent, it might have been good to reduce the x axis so the graph focuses on the 'interesting' part of parameter space better
+challenge question D, excellent, the only very picky comments I can find are the box around the legend, graph text size and graph resolution - all very minor
+challenge question E, good but a few slips - the function to be tested for this question was meant to be called ChallengeE and it wasn't, also the time comparison is wrong because coalescence is divided by 3600 when already in seconds, the comparison is more subtle than this too because the cluster gives us multiple correlated results to average over which is more valuable than a single coalescence simulation
