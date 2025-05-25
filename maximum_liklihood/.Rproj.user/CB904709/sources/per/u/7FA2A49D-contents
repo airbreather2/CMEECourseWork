@@ -1,0 +1,30 @@
+# READ DATA
+recapture.data<-read.csv('recapture.csv', header=T)
+head(recapture.data)
+# SCATTER PLOT
+plot(recapture.data, pch=16)
+
+
+# THE LOG-LIKELIHOOD FOR THE LINEAR REGRESSION
+# PARAMETERS HAVE TO BE INPUT AS A VECTOR
+regression.log.likelihood<-function(parm, dat)
+{
+  # DEFINE THE PARAMETERS parm
+  # WE HAVE THREE PARAMETERS: a, b, sigma. BE CAREFUL OF THE ORDER
+  a<-parm[1]
+  b<-parm[2]
+  sigma<-parm[3]
+  
+  # DEFINE THE DATA dat
+  # FIRST COLUMN IS x, SECOND COLUMN IS y
+  x<-dat[,1]
+  y<-dat[,2]
+  
+  # MODEL ON THE ERROR TERMS. VECTORISED
+  error.term<-(y-a-b*x)
+  # error.term[i] ARE IID NORMAL, WITH MEAN 0 AND A COMMON VARIANCE sigma^2
+  density<-dnorm(error.term, mean=0, sd=sigma, log=T)
+  
+  # THE LOG-LIKELIHOOD IS THE SUM OF INDIVIDUAL LOG-DENSITY
+  return(sum(density))
+}
