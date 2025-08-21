@@ -9,9 +9,10 @@ This repository contains the final scripts associated with the MSC project using
 ├── datajoin/                   # [Contains datajoining scripts]
 │   └── [2 items]              # 
 ├── other scripts/             # [Contains scripts for mentioned algorithms in the paper ]
-│   └── [5 items]              # Coordjitter.ipynb(Coordinate Jittering) ,missforest.R (missing random forest imputation script), Rfmodelanalysis.ipynb (Notebook for generating SHAP plots used in analysis for RF, Spacialautocorrelation.ipynb (Code used to generate spacial autocorrelation threshold) , Xgboostmodelanalysis.ipynb (Code used in analysis for XGboost
+│   └── [5 items]              # Coordjitter.ipynb(Coordinate Jittering) ,missforest.R (missing random forest imputation script), Rfmodelanalysis.ipynb (Notebook for generating SHAP plots used in analysis for RF, Spacialautocorrelation.ipynb (Code used to generate spacial autocorrelation threshold) , Xgboostmodelanalysis.ipynb (Code used in analysis for XGboost)
 
 ├── README.md                  # This file
+├── functions.py            # [Contains functions used in some code]
 ├── RFtopush.ipynb            # [Final RF global model generator]
 └── XGBOOSTtopush.ipynb       # [Final XGboost global model generator]
 ```
@@ -19,7 +20,7 @@ This repository contains the final scripts associated with the MSC project using
 ## Scripts and Notebooks
 
 ### Main Analysis Notebooks
-- **`RFtopush.ipynb`** - [ Generated and saves the final RF model and csv files used for SHAP analysis after in Rfmodelanalysis.ipynb). Input file required:  ]
+- **`RFtopush.ipynb`** - [ Generated and saves the final RF model and csv files used for SHAP analysis after in Rfmodelanalysis.ipynb). Input file required:imputed_jittered_eng_cleaned.csv  ]
 - **`XGBOOSTtopush.ipynb`** - [ Generated and saves the final XGBoost model and csv files used for SHAP analysis after in Rfmodelanalysis.ipynb ]
 
 

@@ -33,7 +33,7 @@ MIN_PUC <- 0.25            # quickpred: min proportion of usable cases
 
 # RF (randomForest) speed/complexity knobs (passed through mice(...))
 RF_NTREE  <- 200
-RF_MTRY   <- NULL          # if NULL, we'll set to floor(sqrt(p))
+RF_MTRY   <- NULL          
 RF_NODESZ <- 5
 RF_MAXN   <- 100
 RF_IMPORT <- FALSE         # importance=FALSE is faster
@@ -44,7 +44,7 @@ SPATIAL_CANDIDATES <- c("Conversion.for.latitude","Conversion.for.longitude")
 # Small set of "key predictors" we allow when imputing a high-card factor
 KEY_PRED_CANDIDATES <- c(SPATIAL_CANDIDATES, "Grain.yield..tons.ha.1.")
 
-# *** ADDED: declare the outcome to prevent leakage ***
+# *** declare the outcome to prevent leakage ***
 OUTCOME <- "Grain.yield..tons.ha.1."
 
 ## -------------------------
